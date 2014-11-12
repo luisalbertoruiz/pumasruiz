@@ -1,6 +1,6 @@
 <?php
 
-class JugadorsController extends \BaseController {
+class JugadoresController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,7 +10,7 @@ class JugadorsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('jugador.index');
 	}
 
 	/**
@@ -21,7 +21,7 @@ class JugadorsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('jugador.create');
 	}
 
 	/**
@@ -32,7 +32,7 @@ class JugadorsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		
 	}
 
 	/**
@@ -56,7 +56,7 @@ class JugadorsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		return View::make('jugador.edit');
 	}
 
 	/**

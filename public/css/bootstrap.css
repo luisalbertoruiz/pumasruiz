@@ -2418,6 +2418,7 @@ input[type="month"].input-lg {
 }
 .form-group {
   margin-bottom: 15px;
+  padding-bottom: 20px;
 }
 .radio,
 .checkbox {

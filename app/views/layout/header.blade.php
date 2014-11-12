@@ -1,3 +1,3 @@
 <div class="page-header">
-	<img src="src/hdr2.jpg" alt="">
+	<img src="http://localhost/pumasruiz/public/src/hdr2.jpg" alt="">
 </div>

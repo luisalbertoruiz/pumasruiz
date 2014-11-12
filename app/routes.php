@@ -11,10 +11,19 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
 Route::get ('/', [
 	'as'   => 'home',
 	'uses' => 'HomeController@index']);
+
+Route::get ('/admin/jugador', [
+	'as'   => 'adminJugador',
+	'uses' => 'JugadoresController@index']);
+
+Route::get ('/admin/jugador/crear', [
+	'as'   => 'adminJugadorCrear',
+	'uses' => 'JugadoresController@create']);
+
+Route::get ('/admin/jugador/editar', [
+	'as'   => 'adminJugadorEditar',
+	'uses' => 'JugadoresController@edit']);
+
