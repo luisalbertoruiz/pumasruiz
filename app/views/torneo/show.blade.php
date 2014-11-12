@@ -1,0 +1,1 @@
+/var/www/pumasruiz/app/views/torneos/show.blade.php

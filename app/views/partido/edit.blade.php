@@ -1,0 +1,1 @@
+/var/www/pumasruiz/app/views/partidos/edit.blade.php

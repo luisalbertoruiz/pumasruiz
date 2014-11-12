@@ -1,0 +1,1 @@
+/var/www/pumasruiz/app/views/equipos/edit.blade.php
