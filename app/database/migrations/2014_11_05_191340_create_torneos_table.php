@@ -16,6 +16,10 @@ class CreateTorneosTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('nombre');
+			$table->integer('fechas');
+			$table->string('tipo');
+			$table->string('competicion');
+			$table->string('enfrentamiento');
 			$table->date('finicio');
 			$table->date('ffinal');
 			$table->timestamps();

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateJugadorsTable extends Migration {
+class CreateJugadoresTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -19,12 +19,12 @@ class CreateJugadorsTable extends Migration {
 			$table->string('apellido');
 			$table->string('sobrenombre')->nullable();
 			$table->string('posicion');
-			$table->integer('numero');
+			$table->integer('playera')->nullable();
 			$table->string('telefono')->nullable();
 			$table->string('celular')->nullable();
 			$table->string('direccion')->nullable();
 			$table->string('email')->nullable();
-			$table->string('foto');
+			$table->string('foto')->nullable();
 			$table->timestamps();
 		});
 	}

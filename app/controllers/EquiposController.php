@@ -10,7 +10,8 @@ class EquiposController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$equipos = DB::table('equipos')->orderBy('nombre')->paginate(5);
+		return View::make('equipo.index')->with('equipos',$equipos);
 	}
 
 	/**
@@ -21,7 +22,7 @@ class EquiposController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('equipo.create');
 	}
 
 	/**
@@ -32,7 +33,25 @@ class EquiposController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$nombre   = Str::title(Str::lower(Input::get('nombre')));
+		$snombre  = Str::title(Str::lower(Input::get('sobrenombre')));
+		$destino  = public_path().'/src/escudos/';
+		if (Input::file('escudo')) {
+			$extension = Input::file('escudo')->getClientOriginalExtension();
+			$escudo      = $nombre.'.'.$extension;
+			$file      = Input::file('escudo');
+			$file->move($destino,$escudo);
+		}else{
+			$escudo      = 'default.jpg';
+		}
+		$equipo = new Equipo();
+		$equipo->nombre      = $nombre;
+		$equipo->sobrenombre = $snombre;
+		$equipo->division    = Input::get('division');
+		$equipo->escudo      = $escudo;
+		$equipo->save();
+		return Redirect::to('admin/equipo')
+		->with('flash_warning', 'Se ha agregado correctamente el equipo.');
 	}
 
 	/**
@@ -44,7 +63,8 @@ class EquiposController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$equipo = Equipo::find($id);
+		return View::make('equipo.show')->with('equipo',$equipo);
 	}
 
 	/**
@@ -56,7 +76,8 @@ class EquiposController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$equipo = Equipo::find($id);
+		return View::make('equipo.edit')->with('equipo',$equipo);
 	}
 
 	/**
@@ -68,7 +89,26 @@ class EquiposController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$equipo   = Equipo::find($id);
+		$nombre   = Str::title(Str::lower(Input::get('nombre')));
+		$apellido = Str::title(Str::lower(Input::get('apellido')));
+		$snombre  = Str::title(Str::lower(Input::get('sobrenombre')));
+		$destino  = public_path().'/src/escudos/';
+		if (Input::file('escudo')) {
+			$extension = Input::file('escudo')->getClientOriginalExtension();
+			$escudo      = $nombre.$apellido.'.'.$extension;
+			$file      = Input::file('escudo');
+			$file->move($destino,$escudo);
+		}else{
+			$escudo      = $equipo->escudo;
+		}
+		$equipo->nombre      = $nombre;
+		$equipo->sobrenombre = $snombre;
+		$equipo->division    = Input::get('division');
+		$equipo->escudo      = $escudo;
+		$equipo->save();
+		return Redirect::to('admin/equipo')
+		->with('flash_warning', 'Se ha editado correctamente el equipo.');
 	}
 
 	/**
@@ -80,7 +120,10 @@ class EquiposController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$equipo = Equipo::find($id);
+		$equipo->delete();
+		return Redirect::to('admin/equipo')
+		->with('flash_warning', 'Se ha eliminado correctamente el equipo.');
 	}
 
 }

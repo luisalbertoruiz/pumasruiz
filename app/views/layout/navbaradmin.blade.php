@@ -7,22 +7,21 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="#">Home</a>
+		<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"> Home</a>
 	</div>
 
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
-			<li><a href="#">Jugadores</a></li>
-			<li><a href="#">Equipos</a></li>
-			<li><a href="#">Torneos</a></li>
-			<li><a href="#">Partidos</a></li>
-			<li><a href="#">Estadisticas</a></li>
+			<li><a href="{{ URL::to('/admin/jugador') }}"><span class="glyphicon glyphicon-user"></span> Jugadores</a></li>
+			<li><a href="{{ URL::to('/admin/equipo') }}"><span class="glyphicon glyphicon-flag"> Equipos</a></li>
+			<li><a href="{{ URL::to('/admin/torneo') }}"><span class="glyphicon glyphicon-calendar"> Torneos</a></li>
+			<li><a href="{{ URL::to('/admin/partido') }}"><span class="glyphicon glyphicon-play"> Partidos</a></li>
+			<li><a href="#"><span class="glyphicon glyphicon-signal"> Estadisticas</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#">Salir</a></li>
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Opciones<b class="caret"></b></a>
 				<ul class="dropdown-menu">
 					<li><a href="#">Action</a></li>
 					<li><a href="#">Another action</a></li>

@@ -17,7 +17,6 @@ body {
 }
 .page-header img{
   width: 90%;
-
 }
 .navbar{
   border-radius: 0;
@@ -148,5 +147,19 @@ body {
   margin: 5px 0 0 90px;
   width: 60px;
   height: 60px;
+}
+#fotoshow{
+  width: 100px;
+  height: 120px;
+  border: solid 3px white;
+  border-radius: 3px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+#escudoshow{
+  width: 120px;
+  height: 120px;
+  border: solid 3px white;
+  border-radius: 3px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
