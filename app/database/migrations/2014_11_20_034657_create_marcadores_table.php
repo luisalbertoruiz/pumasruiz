@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+
+class CreateMarcadoresTable extends Migration {
+
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('marcadores', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->integer('parrtido_id');
+			$table->integer('goles_f');
+			$table->integer('goles_c');
+			$table->timestamps();
+		});
+	}
+
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::drop('marcadores');
+	}
+
+}

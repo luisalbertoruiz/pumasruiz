@@ -12,7 +12,7 @@ Torneoes Pumas Ruiz F.C.
 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h2 class="panel-title"><span class="glyphicon glyphicon-user"> Torneoes</h2>
+			<h2 class="panel-title"><span class="glyphicon glyphicon-calendar"> Torneoes</h2>
 		</div>
 		<div class="panel-body">
 		{{ HTML::link(URL::to('/admin/torneo/crear'), 'Nuevo Torneo', array('class' => 'btn btn-primary btn-sm pull-right')) }}

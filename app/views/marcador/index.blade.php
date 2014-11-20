@@ -1,0 +1,1 @@
+/var/www/pumasruiz/app/views/marcadors/index.blade.php

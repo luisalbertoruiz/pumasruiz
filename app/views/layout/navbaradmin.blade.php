@@ -13,20 +13,25 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
-			<li><a href="{{ URL::to('/admin/jugador') }}"><span class="glyphicon glyphicon-user"></span> Jugadores</a></li>
-			<li><a href="{{ URL::to('/admin/equipo') }}"><span class="glyphicon glyphicon-flag"> Equipos</a></li>
-			<li><a href="{{ URL::to('/admin/torneo') }}"><span class="glyphicon glyphicon-calendar"> Torneos</a></li>
 			<li><a href="{{ URL::to('/admin/partido') }}"><span class="glyphicon glyphicon-play"> Partidos</a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-signal"> Estadisticas</a></li>
+			<li><a href="{{ URL::to('/admin/marcador') }}"><span class="glyphicon glyphicon-pencil"> Marcador</a></li>
+			<li><a href="{{ URL::to('/admin/goleador') }}"><span class="glyphicon glyphicon-record"> Goleo</a></li>
+			<li><a href="{{ URL::to('/admin/posicion') }}"><span class="glyphicon glyphicon-list"> Posición</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Opciones<b class="caret"></b></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mas Opciones<b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><a href="#">Action</a></li>
-					<li><a href="#">Another action</a></li>
-					<li><a href="#">Something else here</a></li>
-					<li><a href="#">Separated link</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-usd"> Aportacion</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-ok"> Asistencia</a></li>
+					<li class="divider"></li>
+					<li><a href="#"><span class="glyphicon glyphicon-list-alt"> Noticias</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-picture"> Galeria</a></li>
+					<li class="divider"></li>
+					<li><a href="{{ URL::to('/admin/jugador') }}"><span class="glyphicon glyphicon-user"></span> &nbsp;&nbsp;Jugadores</a></li>
+					<li><a href="{{ URL::to('/admin/torneo') }}"><span class="glyphicon glyphicon-calendar"> Torneos</a></li>
+					<li><a href="{{ URL::to('/admin/equipo') }}"><span class="glyphicon glyphicon-flag"> Equipos</a></li>
+					
 				</ul>
 			</li>
 		</ul>

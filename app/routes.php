@@ -45,5 +45,27 @@ Route::get  ('/admin/partido/mostrar/{id}','PartidosController@show');
 Route::get  ('/admin/partido/editar/{id}','PartidosController@edit');
 Route::post ('/admin/partido/actualizar/{id}','PartidosController@update');
 Route::get  ('/admin/partido/eliminar/{id}','PartidosController@destroy');
-
-
+// Goleadores
+Route::get  ('/admin/goleador','GoleadoresController@index');
+Route::get  ('/admin/goleador/crear','GoleadoresController@create');
+Route::post ('/admin/goleador/guardar','GoleadoresController@store');
+Route::get  ('/admin/goleador/mostrar/{id}','GoleadoresController@show');
+Route::get  ('/admin/goleador/editar/{id}','GoleadoresController@edit');
+Route::post ('/admin/goleador/actualizar/{id}','GoleadoresController@update');
+Route::get  ('/admin/goleador/eliminar/{id}','GoleadoresController@destroy');
+// Marcadores
+Route::get  ('/admin/marcador','MarcadoresController@index');
+Route::get  ('/admin/marcador/crear','MarcadoresController@create');
+Route::post ('/admin/marcador/guardar','MarcadoresController@store');
+Route::get  ('/admin/marcador/mostrar/{id}','MarcadoresController@show');
+Route::get  ('/admin/marcador/editar/{id}','MarcadoresController@edit');
+Route::post ('/admin/marcador/actualizar/{id}','MarcadoresController@update');
+Route::get  ('/admin/marcador/eliminar/{id}','MarcadoresController@destroy');
+// Posiciones
+Route::get  ('/admin/posicion','PosicionesController@index');
+Route::get  ('/admin/posicion/crear','PosicionesController@create');
+Route::post ('/admin/posicion/guardar','PosicionesController@store');
+Route::get  ('/admin/posicion/mostrar/{id}','PosicionesController@show');
+Route::get  ('/admin/posicion/editar/{id}','PosicionesController@edit');
+Route::post ('/admin/posicion/actualizar/{id}','PosicionesController@update');
+Route::get  ('/admin/posicion/eliminar/{id}','PosicionesController@destroy');
