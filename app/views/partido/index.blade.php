@@ -20,7 +20,7 @@ Partidos Pumas Ruiz F.C.
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th>Equipo</th>
+							<th>vs Equipo</th>
 							<th>Dia</th>
 							<th>Horario</th>
 							<th></th>
@@ -30,10 +30,11 @@ Partidos Pumas Ruiz F.C.
 					</thead>
 					<tbody>
 						@foreach($partidos as $partido)
+						<?php $equipo  = Equipo::find($partido->equipo_id) ?>
 						<tr>
-							<td>{{ $partido->equipo_id }}</td>
+							<td>{{ $equipo->nombre }}</td>
 							<td>{{ $partido->dia }}</td>
-							<td>{{ $partido->horario }}</td>
+							<td>{{ date('h:ia',strtotime($partido->horario)) }}</td>
 							<td>{{ HTML::link(URL::to('/admin/partido/mostrar/'.$partido->id), 'Ver', array('class' => 'btn btn-success btn-xs')) }}</td>
 							<td>{{ HTML::link(URL::to('/admin/partido/editar/'.$partido->id), 'Editar', array('class' => 'btn btn-warning btn-xs')) }}</td>
 							<td>{{ HTML::link(URL::to('/admin/partido/eliminar/'.$partido->id), 'Eliminar', array('class' => 'btn btn-danger btn-xs')) }}</td>

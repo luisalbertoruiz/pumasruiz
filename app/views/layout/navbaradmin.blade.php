@@ -31,6 +31,7 @@
 					<li><a href="{{ URL::to('/admin/jugador') }}"><span class="glyphicon glyphicon-user"></span> &nbsp;&nbsp;Jugadores</a></li>
 					<li><a href="{{ URL::to('/admin/torneo') }}"><span class="glyphicon glyphicon-calendar"> Torneos</a></li>
 					<li><a href="{{ URL::to('/admin/equipo') }}"><span class="glyphicon glyphicon-flag"> Equipos</a></li>
+					<li><a href="{{ URL::to('/admin/cancha') }}"><span class="glyphicon glyphicon-th-large"> Canchas</a></li>
 					
 				</ul>
 			</li>

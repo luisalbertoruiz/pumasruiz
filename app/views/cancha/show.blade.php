@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title')
-Partido Pumas Ruiz F.C.
+{{ $cancha->nombre }} Pumas Ruiz F.C.
 @stop
 @section('header')
 	@include('layout.header')
@@ -12,37 +12,25 @@ Partido Pumas Ruiz F.C.
 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h2 class="panel-title"><span class="glyphicon glyphicon-play"> Partido</h2>
+			<h2 class="panel-title"><span class="glyphicon glyphicon-th-large"> Cancha</h2>
 		</div>
 		<div class="panel-body">
 			<div class="table-responsive">
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th>vs {{ $equipo->nombre }}</th>
+							<th>{{ $cancha->nombre }}</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td>Torneo:</td>
-							<td>{{$torneo->nombre}}</td>
+							<td>Locación:</td>
+							<td>{{$cancha->locacion}}</td>
 						</tr>
 						<tr>
-							<td>cancha:</td>
-							<td>{{$partido->cancha}}</td>
-						</tr>
-						<tr>
-							<td>Dia:</td>
-							<td>{{$partido->dia}}</td>
-						</tr>
-						<tr>
-							<td>Horario:</td>
-							<td>{{date('h:ia',strtotime($partido->horario))}}</td>
-						</tr>
-						<tr>
-							<td>Fecha:</td>
-							<td>{{$partido->fecha}}</td>
+							<td>Información:</td>
+							<td>{{$cancha->info}}</td>
 						</tr>
 					</tbody>
 				</table>

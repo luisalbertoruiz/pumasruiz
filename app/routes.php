@@ -69,3 +69,11 @@ Route::get  ('/admin/posicion/mostrar/{id}','PosicionesController@show');
 Route::get  ('/admin/posicion/editar/{id}','PosicionesController@edit');
 Route::post ('/admin/posicion/actualizar/{id}','PosicionesController@update');
 Route::get  ('/admin/posicion/eliminar/{id}','PosicionesController@destroy');
+// Canchas
+Route::get  ('/admin/cancha','CanchasController@index');
+Route::get  ('/admin/cancha/crear','CanchasController@create');
+Route::post ('/admin/cancha/guardar','CanchasController@store');
+Route::get  ('/admin/cancha/mostrar/{id}','CanchasController@show');
+Route::get  ('/admin/cancha/editar/{id}','CanchasController@edit');
+Route::post ('/admin/cancha/actualizar/{id}','CanchasController@update');
+Route::get  ('/admin/cancha/eliminar/{id}','CanchasController@destroy');
