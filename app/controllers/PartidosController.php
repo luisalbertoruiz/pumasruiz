@@ -11,7 +11,7 @@ class PartidosController extends \BaseController {
 	public function index()
 	{
 		$partidos = DB::table('partidos')
-		->orderBy('fecha')
+		->orderBy('fecha','DESC')
 		->paginate(5);
 		return View::make('partido.index')
 		->with('partidos',$partidos);
@@ -64,8 +64,8 @@ class PartidosController extends \BaseController {
 	public function show($id)
 	{
 		$partido = Partido::find($id);
-		$equipo  = Equipo::find($id);
-		$torneo  = Torneo::find($id);
+		$equipo  = Equipo::find($partido->equipo_id);
+		$torneo  = Torneo::find($partido->torneo_id);
 		return View::make('partido.show')
 		->with('equipo',$equipo)
 		->with('torneo',$torneo)
@@ -82,8 +82,8 @@ class PartidosController extends \BaseController {
 	public function edit($id)
 	{
 		$partido = Partido::find($id);
-		$equipo  = Equipo::find($id);
-		$torneo  = Torneo::find($id);
+		$equipo  = Equipo::find($partido->equipo_id);
+		$torneo  = Torneo::find($partido->torneo_id);
 		$equipos = DB::table('equipos')
 		->where('division','Primera')
 		->where('id','!=',$partido->equipo_id)

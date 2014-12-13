@@ -35,7 +35,7 @@ class CanchasController extends \BaseController {
 	{
 		$cancha = new Cancha();
 		$cancha->nombre   = Str::title(Str::lower(Input::get('nombre')));
-		$cancha->locacion = Input::get('locacion');
+		$cancha->locacion = Str::title(Str::lower(Input::get('locacion')));
 		$cancha->info     = Input::get('info');
 		$cancha->save();
 		return Redirect::to('admin/cancha')
@@ -80,7 +80,7 @@ class CanchasController extends \BaseController {
 
 		$cancha   = Cancha::find($id);
 		$cancha->nombre   = Str::title(Str::lower(Input::get('nombre')));
-		$cancha->locacion = Input::get('locacion');
+		$cancha->locacion = Str::title(Str::lower(Input::get('locacion')));
 		$cancha->info     = Input::get('info');
 		$cancha->save();
 		return Redirect::to('admin/cancha')

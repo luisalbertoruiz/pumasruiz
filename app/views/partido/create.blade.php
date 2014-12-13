@@ -44,9 +44,9 @@ Partidos Pumas Ruiz F.C.
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					<div class="form-group">
 					<label for="dia">Dia</label>
-						<input type="date" class="form-control" id="dia" name="dia"><br>
+						<input type="text" class="form-control" id="dia" name="dia"><br>
 						<label for="horario">Horario</label>
-						<input type="time" class="form-control" id="horario" name="horario"><br>
+						<input type="text" class="form-control" id="horario" name="horario"><br>
 						<label for="fecha">Fecha</label>
 						<input type="number" class="form-control" id="fecha" name="fecha" min="1" max="{{ $torneo->fechas }}">
 					</div>

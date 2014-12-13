@@ -19,7 +19,7 @@ Nuevo Torneo Pumas Ruiz F.C.
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					<div class="form-group">
 						<label for="fechas">Fechas</label>
-						<input type="number" class="form-control" id="fechas" name="fechas" required min="10" max="30" required><br>
+						<input type="number" class="form-control" id="fechas" value="10" name="fechas" min="10" max="30" required><br>
 						<label for="tipo">Tipo</label>
 						<select name="tipo" id="tipo" class="form-control">
 							<option value=""></option>

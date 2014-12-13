@@ -6,13 +6,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
 		<title>@yield('title')</title>
-		<!-- Bootstrap CSS -->
+		<!-- CSS -->
 		{{ HTML::style('css/bootstrap.css') }}
         {{ HTML::style('css/bootstrap-theme.css') }}
-		<!-- jQuery -->
+        {{ HTML::style('css/datepicker.css') }}
+        {{ HTML::style('css/timepicker.css') }}
+		<!-- JavaScript -->
 		{{ HTML::script('js/jquery.js') }}
-		<!-- Bootstrap JavaScript -->
 		{{ HTML::script('js/bootstrap.js') }}
+		{{ HTML::script('js/datepicker.js') }}
+		{{ HTML::script('js/timepicker.js') }}
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -27,5 +30,23 @@
 			@yield('content')
 			@yield('footer')
 		</div>
+		<script>
+		jQuery(document).ready(function($) {
+			$('#horario').timepicker({
+				'timeFormat': 'H:i',
+				'step': 60,
+				'minTime': '8:00am',
+    			'maxTime': '8:00pm' });
+			$('#dia').datepicker({
+				'format': 'yyyy-m-d'
+			});
+			$('#finicio').datepicker({
+				'format': 'yyyy-m-d'
+			});
+			$('#ffinal').datepicker({
+				'format': 'yyyy-m-d'
+			});
+		});
+		</script>
 	</body>
 </html>

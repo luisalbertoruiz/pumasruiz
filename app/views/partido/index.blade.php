@@ -34,7 +34,7 @@ Partidos Pumas Ruiz F.C.
 						<tr>
 							<td>{{ $equipo->nombre }}</td>
 							<td>{{ $partido->dia }}</td>
-							<td>{{ date('h:ia',strtotime($partido->horario)) }}</td>
+							<td>{{ date('h:i a',strtotime($partido->horario)) }}</td>
 							<td>{{ HTML::link(URL::to('/admin/partido/mostrar/'.$partido->id), 'Ver', array('class' => 'btn btn-success btn-xs')) }}</td>
 							<td>{{ HTML::link(URL::to('/admin/partido/editar/'.$partido->id), 'Editar', array('class' => 'btn btn-warning btn-xs')) }}</td>
 							<td>{{ HTML::link(URL::to('/admin/partido/eliminar/'.$partido->id), 'Eliminar', array('class' => 'btn btn-danger btn-xs')) }}</td>

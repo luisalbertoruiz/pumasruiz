@@ -10,7 +10,9 @@ class GoleadoresController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$goleadores = Goleador::goleadorJugador()->paginate(5);
+		return View::make('goleador.index')
+		->with('goleadores',$goleadores);
 	}
 
 	/**
