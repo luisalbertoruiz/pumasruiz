@@ -31,7 +31,10 @@
 			@yield('footer')
 		</div>
 		<script>
-		jQuery(document).ready(function($) {
+		$(document).ready(function($) {
+			setTimeout(function(){
+				$('#notice').fadeOut(750);
+			},2500);
 			$('#horario').timepicker({
 				'timeFormat': 'H:i',
 				'step': 60,

@@ -58,7 +58,7 @@ class JugadoresController extends \BaseController {
 		$jugador->foto        = $foto;
 		$jugador->save();
 		return Redirect::to('admin/jugador')
-		->with('flash_warning', 'Se ha agregado correctamente el jugador.');
+		->with('flash_notice', 'Se ha agregado correctamente el jugador.');
 	}
 
 	/**
@@ -136,7 +136,7 @@ class JugadoresController extends \BaseController {
 		$jugador = Jugador::find($id);
 		$jugador->delete();
 		return Redirect::to('admin/jugador')
-		->with('flash_warning', 'Se ha eliminado correctamente el jugador.');
+		->with('flash_error', 'Se ha eliminado correctamente el jugador.');
 	}
 
 }

@@ -51,7 +51,7 @@ class PartidosController extends \BaseController {
 		$partido->fecha     = Input::get('fecha');
 		$partido->save();
 		return Redirect::to('admin/partido')
-		->with('flash_warning', 'Se ha agregado correctamente el partido.');
+		->with('flash_notice', 'Se ha agregado correctamente el partido.');
 	}
 
 	/**
@@ -137,7 +137,7 @@ class PartidosController extends \BaseController {
 		$partido = Partido::find($id);
 		$partido->delete();
 		return Redirect::to('admin/partido')
-		->with('flash_warning', 'Se ha eliminado correctamente el partido.');
+		->with('flash_error', 'Se ha eliminado correctamente el partido.');
 	}
 
 }

@@ -47,7 +47,7 @@ class TorneosController extends \BaseController {
 		$torneo->ffinal         = Input::get('ffinal');
 		$torneo->save();
 		return Redirect::to('admin/torneo')
-		->with('flash_warning', 'Se ha agregado correctamente el torneo.');
+		->with('flash_notice', 'Se ha agregado correctamente el torneo.');
 	}
 
 	/**
@@ -114,7 +114,7 @@ class TorneosController extends \BaseController {
 		$torneo = Torneo::find($id);
 		$torneo->delete();
 		return Redirect::to('admin/torneo')
-		->with('flash_warning', 'Se ha eliminado correctamente el torneo.');
+		->with('flash_error', 'Se ha eliminado correctamente el torneo.');
 	}
 
 }

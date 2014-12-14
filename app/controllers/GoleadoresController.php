@@ -23,7 +23,11 @@ class GoleadoresController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$partidos = Partido::partidoEquipo()->orderBy('dia','DESC')->get();
+		$jugadores = Jugador::all();
+		return View::make('goleador.create')
+		->with('jugadores',$jugadores)
+		->with('partidos',$partidos);
 	}
 
 	/**
@@ -34,7 +38,14 @@ class GoleadoresController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$goleador = new Goleador();
+		$goleador->jugador_id = Input::get('jugador');
+		$goleador->partido_id = Input::get('partido');
+		$goleador->goles      = Input::get('goles');
+		$goleador->save();
+		return Redirect::to('admin/goleador')
+		->with('flash_notice', 'Se han registrado correctamente los goles.');
+
 	}
 
 	/**
@@ -46,7 +57,7 @@ class GoleadoresController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		return View::make('goleador.show');
 	}
 
 	/**
@@ -58,7 +69,15 @@ class GoleadoresController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$goleador = Goleador::find($id);
+		$partido = Partido::find($goleador->partido_id);
+		$jugador = Jugador::find($goleador->jugador_id);
+		$equipo = Equipo::find($partido->equipo_id);
+		return View::make('goleador.edit')
+		->with('partido',$partido)
+		->with('jugador',$jugador)
+		->with('equipo',$equipo)
+		->with('goleador',$goleador);
 	}
 
 	/**
@@ -70,7 +89,11 @@ class GoleadoresController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$goleador = Goleador::find($id);
+		$goleador->goles      = Input::get('goles');
+		$goleador->save();
+		return Redirect::to('admin/goleador')
+		->with('flash_warning', 'Se han modificado correctamente los goles.');
 	}
 
 	/**
@@ -82,7 +105,10 @@ class GoleadoresController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$goleador = Goleador::find($id);
+		$goleador->delete();
+		return Redirect::to('admin/goleador')
+		->with('flash_error', 'Se ha eliminado correctamente el goleador.');
 	}
 
 }

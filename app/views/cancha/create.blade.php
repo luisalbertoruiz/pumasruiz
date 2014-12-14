@@ -12,7 +12,7 @@ Nueva Cancha Pumas Ruiz F.C.
 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h2 class="panel-title"><span class="glyphicon glyphicon-th-large"> Nueva Cancha</h2>
+			<h2 class="panel-title"><span class="glyphicon glyphicon-th-large"></span> Nueva Cancha</h2>
 		</div>
 		<div class="panel-body">
 			{{ Form::open(array('url' => 'admin/cancha/guardar', 'files' => true)) }}

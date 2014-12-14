@@ -12,7 +12,7 @@ Goleadores Pumas Ruiz F.C.
 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h2 class="panel-title"><span class="glyphicon glyphicon-calendar"> Goleadores</h2>
+			<h2 class="panel-title"><span class="glyphicon glyphicon-record"></span> Goleadores</h2>
 		</div>
 		<div class="panel-body">
 		{{ HTML::link(URL::to('/admin/goleador/crear'), 'Nuevos Goles', array('class' => 'btn btn-primary btn-sm pull-right')) }}
@@ -21,8 +21,8 @@ Goleadores Pumas Ruiz F.C.
 					<thead>
 						<tr>
 							<th>Nombre</th>
-							<th>Goles</th>
 							<th>Partido</th>
+							<th>Goles</th>
 							<th></th>
 							<th></th>
 							<th></th>
@@ -31,9 +31,9 @@ Goleadores Pumas Ruiz F.C.
 					<tbody>
 						@foreach($goleadores as $goleador)
 						<tr>
-							<td>{{ $goleador->nombre }}</td>
-							<td>{{ $goleador->fechas }}</td>
-							<td>{{ $goleador->enfrentamiento }}</td>
+							<td>{{ $goleador->nombre.' '.$goleador->apellido }}</td>
+							<td>{{ $goleador->equipo.' '.$goleador->dia }}</td>
+							<td>{{ $goleador->goles }}</td>
 							<td>{{ HTML::link(URL::to('/admin/goleador/mostrar/'.$goleador->id), 'Ver', array('class' => 'btn btn-success btn-xs')) }}</td>
 							<td>{{ HTML::link(URL::to('/admin/goleador/editar/'.$goleador->id), 'Editar', array('class' => 'btn btn-warning btn-xs')) }}</td>
 							<td>{{ HTML::link(URL::to('/admin/goleador/eliminar/'.$goleador->id), 'Eliminar', array('class' => 'btn btn-danger btn-xs')) }}</td>

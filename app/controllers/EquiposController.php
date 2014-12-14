@@ -51,7 +51,7 @@ class EquiposController extends \BaseController {
 		$equipo->escudo      = $escudo;
 		$equipo->save();
 		return Redirect::to('admin/equipo')
-		->with('flash_warning', 'Se ha agregado correctamente el equipo.');
+		->with('flash_notice', 'Se ha agregado correctamente el equipo.');
 	}
 
 	/**
@@ -123,7 +123,7 @@ class EquiposController extends \BaseController {
 		$equipo = Equipo::find($id);
 		$equipo->delete();
 		return Redirect::to('admin/equipo')
-		->with('flash_warning', 'Se ha eliminado correctamente el equipo.');
+		->with('flash_error', 'Se ha eliminado correctamente el equipo.');
 	}
 
 }

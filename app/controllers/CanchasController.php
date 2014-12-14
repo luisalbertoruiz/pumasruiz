@@ -39,7 +39,7 @@ class CanchasController extends \BaseController {
 		$cancha->info     = Input::get('info');
 		$cancha->save();
 		return Redirect::to('admin/cancha')
-		->with('flash_warning', 'Se ha agregado correctamente el cancha.');
+		->with('flash_notice', 'Se ha agregado correctamente el cancha.');
 	}
 
 	/**
@@ -99,7 +99,7 @@ class CanchasController extends \BaseController {
 		$cancha = Cancha::find($id);
 		$cancha->delete();
 		return Redirect::to('admin/cancha')
-		->with('flash_warning', 'Se ha eliminado correctamente el cancha.');
+		->with('flash_error', 'Se ha eliminado correctamente el cancha.');
 	}
 
 }

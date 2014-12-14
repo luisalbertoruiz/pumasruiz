@@ -38,3 +38,12 @@
 		</ul>
 	</div><!-- /.navbar-collapse -->
 </nav>
+@if(Session::has('flash_warning'))
+	<div id="notice" class="alert alert-warning" role="alert"><p>{{ Session::get('flash_warning') }}</p></div>
+@endif
+@if(Session::has('flash_error'))
+	<div id="notice" class="alert alert-danger" role="alert"><p>{{ Session::get('flash_error') }}</p></div>
+@endif
+@if(Session::has('flash_notice'))
+	<div id="notice" class="alert alert-success" role="alert"><p>{{ Session::get('flash_notice') }}</p></div>
+@endif

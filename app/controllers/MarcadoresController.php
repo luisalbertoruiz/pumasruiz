@@ -43,7 +43,7 @@ class MarcadoresController extends \BaseController {
 		$marcador->goles_c    = Input::get('goles_c');
 		$marcador->save();
 		return Redirect::to('admin/marcador')
-		->with('flash_warning', 'Se ha agregado correctamente el marcador.');
+		->with('flash_notice', 'Se ha agregado correctamente el marcador.');
 	}
 
 	/**
@@ -113,7 +113,7 @@ class MarcadoresController extends \BaseController {
 		$marcador = Marcador::find($id);
 		$marcador->delete();
 		return Redirect::to('admin/marcador')
-		->with('flash_warning', 'Se ha eliminado correctamente el marcador.');
+		->with('flash_error', 'Se ha eliminado correctamente el marcador.');
 	}
 
 }
