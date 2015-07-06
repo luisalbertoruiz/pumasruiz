@@ -11,7 +11,7 @@ class MarcadoresController extends \BaseController {
 	public function index()
 	{
 		$marcadores = Marcador::marcadorPartido()
-		->orderBy('dia','DESC')->paginate(5);
+		->orderBy('dia','DESC')->get();
 		return View::make('marcador.index')
 		->with('marcadores',$marcadores);
 	}

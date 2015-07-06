@@ -23,4 +23,14 @@ class HomeController extends BaseController {
 	{
 		return View::make('home.index');
 	}
+	/**
+	 * muestra todos los jugadores del equipo.
+	 * GET /jugadores
+	 *
+	 * @return Response
+	 */
+	public function login()
+	{
+		return View::make('home.login');
+	}
 }

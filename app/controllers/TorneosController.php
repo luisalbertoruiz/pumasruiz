@@ -10,7 +10,7 @@ class TorneosController extends \BaseController {
 	 */
 	public function index()
 	{
-		$torneos = DB::table('torneos')->orderBy('finicio')->paginate(5);
+		$torneos = DB::table('torneos')->orderBy('finicio')->get();
 		return View::make('torneo.index')->with('torneos',$torneos);
 	}
 

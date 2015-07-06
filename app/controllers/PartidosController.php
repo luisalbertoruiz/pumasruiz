@@ -12,7 +12,7 @@ class PartidosController extends \BaseController {
 	{
 		$partidos = DB::table('partidos')
 		->orderBy('fecha','DESC')
-		->paginate(5);
+		->get();
 		return View::make('partido.index')
 		->with('partidos',$partidos);
 	}

@@ -1,5 +1,4 @@
 <nav class="navbar navbar-default" role="navigation">
-	<!-- Brand and toggle get grouped for better mobile display -->
 	<div class="navbar-header" >
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 			<span class="sr-only">Toggle navigation</span>
@@ -9,8 +8,6 @@
 		</button>
 		<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"> Home</a>
 	</div>
-
-	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
 			<li><a href="{{ URL::to('/admin/partido') }}"><span class="glyphicon glyphicon-play"> Partidos</a></li>
@@ -35,15 +32,7 @@
 					
 				</ul>
 			</li>
+			<li><a href="{{ URL::to('/logout') }}"><span class="glyphicon glyphicon-log-out"></a></li>
 		</ul>
-	</div><!-- /.navbar-collapse -->
+	</div>
 </nav>
-@if(Session::has('flash_warning'))
-	<div id="notice" class="alert alert-warning" role="alert"><p>{{ Session::get('flash_warning') }}</p></div>
-@endif
-@if(Session::has('flash_error'))
-	<div id="notice" class="alert alert-danger" role="alert"><p>{{ Session::get('flash_error') }}</p></div>
-@endif
-@if(Session::has('flash_notice'))
-	<div id="notice" class="alert alert-success" role="alert"><p>{{ Session::get('flash_notice') }}</p></div>
-@endif

@@ -10,7 +10,7 @@ class JugadoresController extends \BaseController {
 	 */
 	public function index()
 	{
-		$jugadores = DB::table('jugadores')->orderBy('playera')->paginate(5);
+		$jugadores = DB::table('jugadores')->orderBy('playera')->get();
 		return View::make('jugador.index')->with('jugadores',$jugadores);
 	}
 
