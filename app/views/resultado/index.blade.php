@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title')
-Jugadores Pumas Ruiz F.C.
+Resultados Pumas Ruiz F.C.
 @stop
 @section('header')
 	@include('layout.header')
@@ -12,43 +12,42 @@ Jugadores Pumas Ruiz F.C.
 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h2 class="panel-title"><span class="glyphicon glyphicon-user"> Jugadores</h2>
-			{{ HTML::link(URL::to('/admin/jugador/crear'), '&nbsp;Nuevo',
-		array('class' => 'btn btn-primary btn-sm glyphicon glyphicon-plus pull-right','style'=>'margin:-25px -10px 0 0')) }}
+			<h2 class="panel-title"><span class="glyphicon glyphicon-list"> Resultados</h2>
+			{{ HTML::link(URL::to('/admin/resultado/crear'), '&nbsp;Nuevo', array('class' => 'btn btn-primary btn-sm pull-right glyphicon glyphicon-plus pull-right','style'=>'margin:-25px -10px 0 0')) }}
 		</div>
 		<div class="panel-body">
 			<div class="table-responsive">
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Nombre(s)</th>
-							<th>Apellido(s)</th>
-							<th>Sobrenombre</th>
-							<th>Playera</th>
+							<th>Partido</th>
+							<th>Fecha</th>
+							<th>Local</th>
+							<th>Visitante</th>
 							<th>Acciones</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($jugadores as $jugador)
+						@foreach($resultados as $resultado)
 						<tr>
-							<td>{{ $jugador->nombre }}</td>
-							<td>{{ $jugador->apellido }}</td>
-							<td>{{ $jugador->sobrenombre }}</td>
-							<td>{{ $jugador->playera }}</td>
+							<td>{{ $resultado->local_id.'vs'.$resultado->visitante_id }}</td>
+							<td>{{ $resultado->fecha }}</td>
+							<td>{{ $resultado->goles_l }}</td>
+							<td>{{ $resultado->goles_v }}</td>
 							<td>
-							{{ HTML::link(URL::to('/admin/jugador/mostrar/'.$jugador->id), '',
+							{{ HTML::link(URL::to('/admin/resultado/mostrar/'.$resultado->id), '',
 							array('class' => 'btn btn-success btn-xs glyphicon glyphicon-eye-open')) }}
-							{{ HTML::link(URL::to('/admin/jugador/editar/'.$jugador->id), '',
+							{{ HTML::link(URL::to('/admin/resultado/editar/'.$resultado->id), '',
 							array('class' => 'btn btn-warning btn-xs glyphicon glyphicon-pencil')) }}
-							{{ HTML::link(URL::to('/admin/jugador/eliminar/'.$jugador->id), '',
+							{{ HTML::link(URL::to('/admin/resultado/eliminar/'.$resultado->id), '',
 							array('class' => 'btn btn-danger btn-xs glyphicon glyphicon-trash')) }}
 							</td>
 						</tr>
 					@endforeach
 					</tbody>
 				</table>
+				<br><br>
 			</div>
-
 		</div>
 	</div>
 </div>

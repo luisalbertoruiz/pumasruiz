@@ -91,6 +91,20 @@ Route::get  ('/admin/cancha/mostrar/{id}','CanchasController@show');
 Route::get  ('/admin/cancha/editar/{id}','CanchasController@edit');
 Route::post ('/admin/cancha/actualizar/{id}','CanchasController@update');
 Route::get  ('/admin/cancha/eliminar/{id}','CanchasController@destroy');
+// Resultados
+Route::get  ('/admin/resultado','ResultadosController@index');
+Route::get  ('/admin/resultado/crear','ResultadosController@create');
+Route::post ('/admin/resultado/guardar','ResultadosController@store');
+Route::get  ('/admin/resultado/mostrar/{id}','ResultadosController@show');
+Route::get  ('/admin/resultado/editar/{id}','ResultadosController@edit');
+Route::post ('/admin/resultado/actualizar/{id}','ResultadosController@update');
+Route::get  ('/admin/resultado/eliminar/{id}','ResultadosController@destroy');
+Route::get  ('visitantes',function(){
+
+	$id = Input::get('id');
+	$visitantes = DB::table('equipos')->whereNotIn('id',[$id])->get();
+	return $visitantes;
+});
 });
 Route::group(array('before' => 'Sentry|inGroup:users'), function(){});
 // Sentry 2

@@ -13,9 +13,9 @@ Goleadores Pumas Ruiz F.C.
 	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h2 class="panel-title"><span class="glyphicon glyphicon-record"></span> Goleadores</h2>
+			{{ HTML::link(URL::to('/admin/goleador/crear'), 'Nuevos Goles', array('class' => 'btn btn-primary btn-sm pull-right glyphicon glyphicon-plus pull-right','style'=>'margin:-25px -10px 0 0')) }}
 		</div>
 		<div class="panel-body">
-		{{ HTML::link(URL::to('/admin/goleador/crear'), 'Nuevos Goles', array('class' => 'btn btn-primary btn-sm pull-right')) }}
 			<div class="table-responsive">
 				<table class="table table-hover">
 					<thead>
@@ -46,4 +46,22 @@ Goleadores Pumas Ruiz F.C.
 		</div>
 	</div>
 </div>
+@stop
+@section('css')
+{{ HTML::style('css/dataTables.bs.css') }}
+@stop
+@section('js')
+{{ HTML::script('js/dataTables.js') }}
+{{ HTML::script('js/dataTables.bs.js') }}
+{{ HTML::script('js/toastr.js') }}
+@stop
+@section('script')
+<script type="text/javascript">
+	jQuery(document).ready(function($)
+	{
+		$('table').DataTable({
+			"lengthMenu": [[5, 10, -1],[5, 10, 'Todo']]
+		});
+	});
+</script>
 @stop

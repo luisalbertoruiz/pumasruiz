@@ -101,6 +101,7 @@ label.error{
 }
 .panel-title{
   color:white;
+  max-width: 500px;
 }
 .panelm{
   border: none;
@@ -176,4 +177,12 @@ label.error{
 textarea{
   resize: none;
 }
-
+.table-responsive {
+  overflow-x: hidden;
+}
+@media screen and (max-width: 767px) {
+  .table-responsive {
+    border: none;
+    overflow-x: auto;
+  }
+}
