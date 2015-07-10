@@ -138,4 +138,30 @@ class ResultadosController extends \BaseController {
 		->with('flash_error', 'Se ha eliminado correctamente el resultado.');
 	}
 
+	/**
+	 * Display a listing of the resource.
+	 * GET /resultados
+	 *
+	 * @return Response
+	 */
+	public function visitantes($id)
+	{
+		$visitantes = DB::table('equipos')
+		->whereNotIn('id',[$id])->get();
+		return View::make('resultado.visitantes')
+		->with('visitantes',$visitantes);
+	}
+
+	/**
+	 * Display a listing of the resource.
+	 * GET /resultados
+	 *
+	 * @return Response
+	 */
+	public function fecha($id)
+	{
+		$fecha = Torneo::find($id);
+		return $fecha['fechas'];
+	}
+
 }

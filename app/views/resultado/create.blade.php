@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title')
-Marcadoress Pumas Ruiz F.C.
+Marcadores Pumas Ruiz F.C.
 @stop
 @section('header')
 	@include('layout.header')
@@ -25,8 +25,8 @@ Marcadoress Pumas Ruiz F.C.
 								<option value="{{$equipo->id}}">{{ $equipo->nombre }}</option>
 							@endforeach
 						</select><br>
-						<label for="goles_c">Goles local</label>
-						<select class="form-control" id="goles_c" name="goles_c" required>
+						<label for="goles_l">Goles local</label>
+						<select class="form-control" id="goles_l" name="goles_l" required>
 							<option value=""></option>
 							@for($i=0; $i<10; $i++)
 								<option>{{$i}}</option>}
@@ -50,19 +50,15 @@ Marcadoress Pumas Ruiz F.C.
 								<option value="{{$equipo->id}}">{{ $equipo->nombre }}</option>
 							@endforeach
 						</select><br>
-						<label for="goles_f">Goles visitante</label>
-						<select class="form-control" id="goles_f" name="goles_f" required>
+						<label for="goles_v">Goles visitante</label>
+						<select class="form-control" id="goles_v" name="goles_v" required>
 							<option value=""></option>
 							@for($i=0; $i<10; $i++)
 								<option>{{$i}}</option>}
 							@endfor
-						</select>
-						<select name="torneo" id="torneo" class="form-control" required>
-							<option value=""></option>
-							@foreach($torneos as $torneo)
-								<option value="{{$torneo->id}}">{{ $torneo->nombre }}</option>
-							@endforeach
-						</select>
+						</select><br>
+						<label for="fecha">Fecha</label>
+						<input type="number" class="form-control" id="fecha" name="fecha" min="1" max="1">
 					</div>
 				</div>
 				<button type="submit" class="btn btn-success pull-right">Registrar</button>
@@ -77,13 +73,20 @@ Marcadoress Pumas Ruiz F.C.
 @stop
 @section('script')
 <script type="text/javascript">
+	var urlv = '<?php echo URL::to("/admin/resultado/visitantes/") ?>';
+	var urlf = '<?php echo URL::to("/admin/resultado/fecha/") ?>';
 	jQuery(document).ready(function($)
 	{
 		$('#elocal').change(function(event) {
 			var valor = $(this).val();
-			$('#visitante').prop('selectedIndex',0);
-			$('#visitante').removeAttr('disabled');
-			$("#visitante option[value='"+valor+"']").remove();
+			if (valor != '') $('#visitante').prop('disabled', false).load(urlv+'/'+valor);
+			else $('#visitante').prop('disabled', true).html('');
+		});
+		$('#torneo').change(function(event) {
+			var valor = $(this).val();
+			$.get(urlf+'/'+valor, function(data) {
+				$('#fecha').attr('max', data);
+			});
 		});
 	});
 </script>

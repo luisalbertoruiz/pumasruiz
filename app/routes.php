@@ -99,12 +99,8 @@ Route::get  ('/admin/resultado/mostrar/{id}','ResultadosController@show');
 Route::get  ('/admin/resultado/editar/{id}','ResultadosController@edit');
 Route::post ('/admin/resultado/actualizar/{id}','ResultadosController@update');
 Route::get  ('/admin/resultado/eliminar/{id}','ResultadosController@destroy');
-Route::get  ('visitantes',function(){
-
-	$id = Input::get('id');
-	$visitantes = DB::table('equipos')->whereNotIn('id',[$id])->get();
-	return $visitantes;
-});
+Route::get  ('/admin/resultado/visitantes/{id}','ResultadosController@visitantes');
+Route::get  ('/admin/resultado/fecha/{id}','ResultadosController@fecha');
 });
 Route::group(array('before' => 'Sentry|inGroup:users'), function(){});
 // Sentry 2
