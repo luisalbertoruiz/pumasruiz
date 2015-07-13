@@ -12,7 +12,7 @@ Resultados Pumas Ruiz F.C.
 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h2 class="panel-title"><span class="glyphicon glyphicon-list"> Resultados</h2>
+			<h2 class="panel-title"><span class="glyphicon glyphicon-list"></span> Resultados</h2>
 			{{ HTML::link(URL::to('/admin/resultado/crear'), '&nbsp;Nuevo', array('class' => 'btn btn-primary btn-sm pull-right glyphicon glyphicon-plus pull-right','style'=>'margin:-25px -10px 0 0')) }}
 		</div>
 		<div class="panel-body">

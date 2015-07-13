@@ -13,7 +13,7 @@ Goleadores Pumas Ruiz F.C.
 	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h2 class="panel-title"><span class="glyphicon glyphicon-record"></span> Goleadores</h2>
-			{{ HTML::link(URL::to('/admin/goleador/crear'), 'Nuevos Goles', array('class' => 'btn btn-primary btn-sm pull-right glyphicon glyphicon-plus pull-right','style'=>'margin:-25px -10px 0 0')) }}
+			{{ HTML::link(URL::to('/admin/goleador/crear'), '&nbsp;Nuevo', array('class' => 'btn btn-primary btn-sm pull-right glyphicon glyphicon-plus pull-right','style'=>'margin:-25px -10px 0 0')) }}
 		</div>
 		<div class="panel-body">
 			<div class="table-responsive">
@@ -23,9 +23,7 @@ Goleadores Pumas Ruiz F.C.
 							<th>Nombre</th>
 							<th>Partido</th>
 							<th>Goles</th>
-							<th></th>
-							<th></th>
-							<th></th>
+							<th>Acciones</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -34,9 +32,9 @@ Goleadores Pumas Ruiz F.C.
 							<td>{{ $goleador->nombre.' '.$goleador->apellido }}</td>
 							<td>{{ $goleador->equipo.' '.$goleador->dia }}</td>
 							<td>{{ $goleador->goles }}</td>
-							<td>{{ HTML::link(URL::to('/admin/goleador/mostrar/'.$goleador->id), 'Ver', array('class' => 'btn btn-success btn-xs')) }}</td>
-							<td>{{ HTML::link(URL::to('/admin/goleador/editar/'.$goleador->id), 'Editar', array('class' => 'btn btn-warning btn-xs')) }}</td>
-							<td>{{ HTML::link(URL::to('/admin/goleador/eliminar/'.$goleador->id), 'Eliminar', array('class' => 'btn btn-danger btn-xs')) }}</td>
+							<td>{{ HTML::link(URL::to('/admin/goleador/mostrar/'.$goleador->id), '', array('class' => 'btn btn-success btn-xs glyphicon glyphicon-eye-open' )) }}
+							{{ HTML::link(URL::to('/admin/goleador/editar/'.$goleador->id), '', array('class' => 'btn btn-warning btn-xs glyphicon glyphicon-pencil')) }}
+							{{ HTML::link(URL::to('/admin/goleador/eliminar/'.$goleador->id), '', array('class' => 'btn btn-danger btn-xs glyphicon glyphicon-trash')) }}</td>
 						</tr>
 					@endforeach
 					</tbody>

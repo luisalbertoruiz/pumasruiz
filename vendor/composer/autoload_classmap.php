@@ -88,7 +88,7 @@ return array(
     'ClassPreloader\\Parser\\DirVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/DirVisitor.php',
     'ClassPreloader\\Parser\\FileVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/FileVisitor.php',
     'ClassPreloader\\Parser\\NodeTraverser' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
-    'CreateCanchasTable' => $baseDir . '/app/database/migrations/2014_11_23_153456_create_canchas_table.php',
+    'CreateCanchasTable' => $baseDir . '/app/database/migrations/2014_11_04_153456_create_canchas_table.php',
     'CreateEquiposTable' => $baseDir . '/app/database/migrations/2014_11_05_043414_create_equipos_table.php',
     'CreateGaleriasTable' => $baseDir . '/app/database/migrations/2015_07_10_163756_create_galerias_table.php',
     'CreateGoleadoresTable' => $baseDir . '/app/database/migrations/2014_11_20_040007_create_goleadores_table.php',

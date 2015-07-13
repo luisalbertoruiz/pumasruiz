@@ -12,11 +12,10 @@ Partidos Pumas Ruiz F.C.
 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h2 class="panel-title"><span class="glyphicon glyphicon-play"> Marcadores</h2>
+			<h2 class="panel-title"><span class="glyphicon glyphicon-play"></span> Marcadores</h2>
+			{{ HTML::link(URL::to('/admin/marcador/crear'), '&nbsp;Nuevo', array('class' => 'btn btn-primary btn-sm pull-right glyphicon glyphicon-plus pull-right','style'=>'margin:-25px -10px 0 0')) }}
 		</div>
 		<div class="panel-body">
-		{{ HTML::link(URL::to('/admin/marcador/crear'), '&nbsp;Nuevo',
-		array('class' => 'btn btn-primary btn-sm pull-right glyphicon glyphicon-plus')) }}
 			<div class="table-responsive">
 				<table class="table table-hover" id="tabla">
 					<thead>
@@ -52,4 +51,22 @@ Partidos Pumas Ruiz F.C.
 		</div>
 	</div>
 </div>
+@stop
+@section('css')
+{{ HTML::style('css/dataTables.bs.css') }}
+@stop
+@section('js')
+{{ HTML::script('js/dataTables.js') }}
+{{ HTML::script('js/dataTables.bs.js') }}
+{{ HTML::script('js/toastr.js') }}
+@stop
+@section('script')
+<script type="text/javascript">
+	jQuery(document).ready(function($)
+	{
+		$('table').DataTable({
+			"lengthMenu": [[5, 10, -1],[5, 10, 'Todo']]
+		});
+	});
+</script>
 @stop

@@ -82,24 +82,13 @@ class PartidosController extends \BaseController {
 	public function edit($id)
 	{
 		$partido = Partido::find($id);
-		$equipo  = Equipo::find($partido->equipo_id);
-		$torneo  = Torneo::find($partido->torneo_id);
-		$equipos = DB::table('equipos')
-		->where('division','Primera')
-		->where('id','!=',$partido->equipo_id)
-		->get();
-		$torneos = DB::table('torneos')
-		->where('id','!=',$partido->torneo_id)
-		->get();
-		$canchas = DB::table('canchas')
-		->where('nombre','!=',$partido->cancha)
-		->get();
+		$equipos = Equipo::lists('nombre','id');
+		$torneos = Torneo::lists('nombre','id');
+		$canchas = Cancha::lists('nombre','id');
 		return View::make('partido.edit')
 		->with('partido',$partido)
 		->with('equipos',$equipos)
 		->with('torneos',$torneos)
-		->with('equipo',$equipo)
-		->with('torneo',$torneo)
 		->with('canchas',$canchas);
 	}
 

@@ -10,8 +10,9 @@ class CanchasController extends \BaseController {
 	 */
 	public function index()
 	{
-		$canchas = DB::table('canchas')->orderBy('nombre')->get();
-		return View::make('cancha.index')->with('canchas',$canchas);
+		$canchas = Cancha::all();
+		return View::make('cancha.index')
+		->with('canchas',$canchas);
 	}
 
 	/**

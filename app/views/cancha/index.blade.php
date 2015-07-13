@@ -13,7 +13,7 @@ Canchas Pumas Ruiz F.C.
 	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h2 class="panel-title"><span class="glyphicon glyphicon-th-large"> Canchas</h2>
-			{{ HTML::link(URL::to('/admin/cancha/crear'), '&nbsp;Nuevo', array('class' => 'btn btn-primary btn-sm pull-right glyphicon glyphicon-plus pull-right','style'=>'margin:-25px -10px 0 0')) }}
+			{{ HTML::link(URL::to('/admin/cancha/create'), '&nbsp;Nuevo', array('class' => 'btn btn-primary btn-sm pull-right glyphicon glyphicon-plus pull-right','style'=>'margin:-25px -10px 0 0')) }}
 		</div>
 		<div class="panel-body">
 			<div class="table-responsive">
@@ -31,12 +31,12 @@ Canchas Pumas Ruiz F.C.
 							<td>{{ $cancha->nombre }}</td>
 							<td>{{ $cancha->locacion }}</td>
 							<td>
-							{{ HTML::link(URL::to('/admin/cancha/mostrar/'.$cancha->id), '',
-							array('class' => 'btn btn-success btn-xs glyphicon glyphicon-eye-open')) }}
-							{{ HTML::link(URL::to('/admin/cancha/editar/'.$cancha->id), '',
-							array('class' => 'btn btn-warning btn-xs glyphicon glyphicon-pencil')) }}
-							{{ HTML::link(URL::to('/admin/cancha/eliminar/'.$cancha->id), '',
-							array('class' => 'btn btn-danger btn-xs glyphicon glyphicon-trash')) }}
+							{{ link_to_route('admin.cancha.show','',$cancha->id, array('class' => 'btn btn-success btn-xs glyphicon glyphicon-eye-open')) }}
+							{{ link_to_route('admin.cancha.edit','',$cancha->id, array('class' => 'btn btn-warning btn-xs glyphicon glyphicon-pencil')) }}
+							{{ link_to_route('admin.cancha.destroy','',$cancha->id, array('class' => 'btn btn-danger btn-xs glyphicon glyphicon-trash')) }}
+							{{ Form::open(array('method' => 'DELETE', 'route' => array('admin.cancha.destroy', $cancha->id))) }}                       
+                            	{{ Form::submit('&nbsp;', array('class'=> 'btn btn-danger btn-xs glyphicon glyphicon-trash')) }}
+                        	{{ Form::close() }}
 							</td>
 						</tr>
 					@endforeach
@@ -63,6 +63,7 @@ Canchas Pumas Ruiz F.C.
 		$('table').DataTable({
 			"lengthMenu": [[5, 10, -1],[5, 10, 'Todo']]
 		});
+
 	});
 </script>
 @stop

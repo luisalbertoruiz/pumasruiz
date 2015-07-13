@@ -19,7 +19,8 @@ class CreatePartidosTable extends Migration {
 			$table->foreign('equipo_id')->references('id')->on('equipos');
 			$table->integer('torneo_id')->unsigned();
 			$table->foreign('torneo_id')->references('id')->on('torneos');
-			$table->string('cancha');
+			$table->integer('cancha_id')->unsigned();
+			$table->foreign('cancha_id')->references('id')->on('canchas');
 			$table->date('dia');
 			$table->time('horario');
 			$table->integer('fecha');

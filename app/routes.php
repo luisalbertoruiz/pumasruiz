@@ -84,13 +84,7 @@ Route::get  ('/admin/posicion/editar/{id}','PosicionesController@edit');
 Route::post ('/admin/posicion/actualizar/{id}','PosicionesController@update');
 Route::get  ('/admin/posicion/eliminar/{id}','PosicionesController@destroy');
 // Canchas
-Route::get  ('/admin/cancha','CanchasController@index');
-Route::get  ('/admin/cancha/crear','CanchasController@create');
-Route::post ('/admin/cancha/guardar','CanchasController@store');
-Route::get  ('/admin/cancha/mostrar/{id}','CanchasController@show');
-Route::get  ('/admin/cancha/editar/{id}','CanchasController@edit');
-Route::post ('/admin/cancha/actualizar/{id}','CanchasController@update');
-Route::get  ('/admin/cancha/eliminar/{id}','CanchasController@destroy');
+Route::resource('admin/cancha', 'CanchasController');
 // Resultados
 Route::get  ('/admin/resultado','ResultadosController@index');
 Route::get  ('/admin/resultado/crear','ResultadosController@create');
@@ -104,40 +98,40 @@ Route::get  ('/admin/resultado/fecha/{id}','ResultadosController@fecha');
 });
 Route::group(array('before' => 'Sentry|inGroup:users'), function(){});
 // Sentry 2
-/*Route::get('sentry', function()
-{
-	$groupA = Sentry::createGroup([
-		'name'        => 'administrador',
-		'permissions' =>[
-		'admin'       => 1,
-		'users'       => 1,
-		],
-		]);
-	$groupU = Sentry::createGroup([
-		'name'        => 'usuario',
-		'permissions' =>[
-		'admin'       => 0,
-		'users'       => 1,
-		],
-		]);
-	$admin = Sentry::createUser([
-		'email'      => 'admin@sga.com',
-		'username'   => 'admin',
-		'password'   => 'admin',
-		'first_name' => 'Administrador',
-		'last_name'  => 'General',
-		'activated'  => 1,
-		]);
-	$user = Sentry::createUser([
-		'email'      => 'user@sga.com',
-		'username'   => 'user',
-		'password'   => 'user',
-		'first_name' => 'Usuario',
-		'last_name'  => 'Estandar',
-		'activated'  => 1,
-		]);
-	$admin->addGroup($groupA);
-	$user->addGroup($groupU);
+// Route::get('sentry', function()
+// {
+// 	$groupA = Sentry::createGroup([
+// 		'name'        => 'administrador',
+// 		'permissions' =>[
+// 		'admin'       => 1,
+// 		'users'       => 1,
+// 		],
+// 		]);
+// 	$groupU = Sentry::createGroup([
+// 		'name'        => 'usuario',
+// 		'permissions' =>[
+// 		'admin'       => 0,
+// 		'users'       => 1,
+// 		],
+// 		]);
+// 	$admin = Sentry::createUser([
+// 		'email'      => 'admin@sga.com',
+// 		'username'   => 'admin',
+// 		'password'   => 'admin',
+// 		'first_name' => 'Administrador',
+// 		'last_name'  => 'General',
+// 		'activated'  => 1,
+// 		]);
+// 	$user = Sentry::createUser([
+// 		'email'      => 'user@sga.com',
+// 		'username'   => 'user',
+// 		'password'   => 'user',
+// 		'first_name' => 'Usuario',
+// 		'last_name'  => 'Estandar',
+// 		'activated'  => 1,
+// 		]);
+// 	$admin->addGroup($groupA);
+// 	$user->addGroup($groupU);
 	
-	return 'todo se genero correctamente';
-});*/
+// 	return 'todo se genero correctamente';
+// });
