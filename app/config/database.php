@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'pumasruiz',
 			'username'  => 'starkiller',
-			'password'  => '1234',
+			'password'  => '5639119833Mx',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
