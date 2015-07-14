@@ -40,7 +40,7 @@ class CanchasController extends \BaseController {
 		$cancha->info     = Input::get('info');
 		$cancha->save();
 		return Redirect::to('admin/cancha')
-		->with('flash_notice', 'Se ha agregado correctamente el cancha.');
+		->with('alert-success', 'Se ha agregado correctamente la cancha.');
 	}
 
 	/**
@@ -53,7 +53,8 @@ class CanchasController extends \BaseController {
 	public function show($id)
 	{
 		$cancha = Cancha::find($id);
-		return View::make('cancha.show')->with('cancha',$cancha);
+		return View::make('cancha.show')
+		->with('cancha',$cancha);
 	}
 
 	/**
@@ -66,7 +67,8 @@ class CanchasController extends \BaseController {
 	public function edit($id)
 	{
 		$cancha = Cancha::find($id);
-		return View::make('cancha.edit')->with('cancha',$cancha);
+		return View::make('cancha.edit')
+		->with('cancha',$cancha);
 	}
 
 	/**
@@ -85,7 +87,7 @@ class CanchasController extends \BaseController {
 		$cancha->info     = Input::get('info');
 		$cancha->save();
 		return Redirect::to('admin/cancha')
-		->with('flash_warning', 'Se ha editado correctamente el cancha.');
+		->with('alert-success', 'Se ha editado correctamente la cancha.');
 	}
 
 	/**
@@ -100,7 +102,7 @@ class CanchasController extends \BaseController {
 		$cancha = Cancha::find($id);
 		$cancha->delete();
 		return Redirect::to('admin/cancha')
-		->with('flash_error', 'Se ha eliminado correctamente el cancha.');
+		->with('alert-danger', 'Se ha eliminado correctamente la cancha.');
 	}
 
 }

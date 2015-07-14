@@ -17,7 +17,7 @@ Editar Cancha {{$cancha->nombre}} Pumas Ruiz F.C.
 		<div class="panel-body">
 			{{ Form::model($cancha,array('method'=>'PUT', 'route' => array('admin.cancha.update',$cancha->id))) }}
 				@include('cancha.form')
-				{{ Form::submit('Registrar',array('class'=>'btn btn-success pull-right'))}}
+				{{ Form::submit('Cambiar',array('class'=>'btn btn-success pull-right'))}}
 				{{ HTML::link(URL::previous(), 'Regresar',array('class' => 'btn btn-primary')) }}
 			{{ Form::close() }}
 		</div>
