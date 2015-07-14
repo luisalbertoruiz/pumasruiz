@@ -6,13 +6,13 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="{{ URL::to('/') }}">Home</a>
+		<a class="navbar-brand" href="{{ URL::to('/') }}"><span class="glyphicon glyphicon-home"></span> Home</a>
 	</div>
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
-			<li><a href="{{ URL::to('jugadores') }}">Jugadores</a></li>
-			<li><a href="{{ URL::to('partidos') }}">Partidos</a></li>
-			<li><a href="{{ URL::to('estadisticas') }}">Estadisticas</a></li>
+			<li><a href="#">Jugadores</a></li>
+			<li><a href="#">Partidos</a></li>
+			<li><a href="#">Estadisticas</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="{{ URL::to('login') }}"><span class="glyphicon glyphicon-log-in"></a></li>
