@@ -1,6 +1,6 @@
 body {
-    background: #fff url(../src/bgp.jpg) no-repeat center center fixed; 
-    background-size: cover;
+    background: #506b98 ; 
+    /*background-size: cover;*/
     font-family: Arial, sans-serif;
 }
 label.error{
