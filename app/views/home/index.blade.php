@@ -1,4 +1,7 @@
 @extends('layout.main')
+@section('metas')
+@include('layout.metas')
+@stop
 @section('title')
 Pumas Ruiz F.C.
 @stop
