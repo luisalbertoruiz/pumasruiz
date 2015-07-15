@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-md-offset-1">
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 		<div class="panel panel-primary">
 			  <div class="panel-heading">
 					<h2 class="panel-title">Noticias</h2>
