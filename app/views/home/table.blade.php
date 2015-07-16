@@ -59,7 +59,7 @@
 						</tr>
 						<tr>
 							<th>8</th>
-							<td>{{ HTML::image('src/escudos/Penarol.png', 'local',array('class'=>'escudoTabla')) }}
+							<td>{{ HTML::image('src/escudos/penarol.png', 'local',array('class'=>'escudoTabla')) }}
 							Peñarol</td>
 							<td>0</td>
 						</tr>
