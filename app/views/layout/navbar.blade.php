@@ -6,13 +6,13 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="{{ URL::to('/') }}"><span class="glyphicon glyphicon-home"></span> Home</a>
+		<a class="navbar-brand" href="{{ URL::to('/') }}"><span>{{ HTML::image('src/logo-azul-sm.png', 'home',array('class'=>'home')) }} Home</span></a>
 	</div>
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
-			<li><a href="#">Jugadores</a></li>
-			<li><a href="#">Partidos</a></li>
-			<li><a href="#">Estadisticas</a></li>
+			<li><a href="#"><span class="glyphicon glyphicon-user"></span> Jugadores</a></li>
+			<li><a href="#"><span class="glyphicon glyphicon-play"></span> Partidos</a></li>
+			<li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Estadisticas</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="{{ URL::to('login') }}"><span class="glyphicon glyphicon-log-in"></a></li>
