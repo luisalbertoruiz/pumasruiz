@@ -17,3 +17,6 @@ Pumas Ruiz F.C.
 	@include('home.notice')
 	@include('home.table')
 @stop
+@section('footer')
+	@include('home.footer')
+@stop

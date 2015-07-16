@@ -10,11 +10,13 @@
 		<!-- CSS -->
 		{{ HTML::style('css/bootstrap.css') }}
         {{ HTML::style('css/bootstrap-theme.css') }}
+        {{ HTML::style('css/ui.css') }}
         {{ HTML::style('css/datepicker.css') }}
         {{ HTML::style('css/timepicker.css') }}
 		<!-- JavaScript -->
 		{{ HTML::script('js/jquery.js') }}
 		{{ HTML::script('js/bootstrap.js') }}
+		{{ HTML::script('js/ui.js') }}
 		{{ HTML::script('js/datepicker.js') }}
 		{{ HTML::script('js/timepicker.js') }}
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -37,6 +39,23 @@
 		@yield('script')
 		<script>
 		$(document).ready(function($) {
+			$( document ).tooltip({
+				show: {
+			        effect: "slideDown",
+			        delay: 0
+		    	},
+		    	position: {
+		        my: "center top-0",
+		        at: "center bottom"/*,
+		        using: function( position, feedback ) {
+		          $( this ).css( position );
+		          $( "<div>" )
+		            .addClass( "arrow" )
+		            .addClass( feedback.vertical )
+		            .addClass( feedback.horizontal )
+		            .appendTo( this );
+		        }*/}
+		    });
 			$('#horario').timepicker({
 				'timeFormat': 'H:i',
 				'step': 60,

@@ -52,14 +52,11 @@ Canchas Pumas Ruiz F.C.
 @section('css')
 {{ HTML::style('css/dataTables.bs.css') }}
 {{ HTML::style('css/toastr.css') }}
-{{ HTML::style('css/ui.css') }}
-{{ HTML::style('css/uit.css') }}
 @stop
 @section('js')
 {{ HTML::script('js/dataTables.js') }}
 {{ HTML::script('js/dataTables.bs.js') }}
 {{ HTML::script('js/toastr.js') }}
-{{ HTML::script('js/ui.js') }}
 @stop
 @section('script')
 <script type="text/javascript">

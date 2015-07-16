@@ -23,7 +23,7 @@ label.error{
 .page-header {
   background-color: #b2945e;
   padding: 0;
-  margin: 20px 0 20px;
+  margin: 0px 0 20px;
   border-bottom: 5px solid #1a2c6e;
 }
 .page-header img{
@@ -103,6 +103,14 @@ label.error{
   color:white;
   max-width: 500px;
 }
+.panel-default {
+  border: none;
+  border-bottom: 5px solid #b2945e;
+  color:white;
+}
+.panel-default .panel-body{
+  background-color: #1a2c6e;
+}
 .panelm{
   border: none;
   border-bottom: 5px solid #1a2c6e;
@@ -174,6 +182,9 @@ label.error{
   border-radius: 3px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
+.escudoTabla{
+  width: 25px;
+}
 textarea{
   resize: none;
 }
@@ -185,4 +196,48 @@ textarea{
     border: none;
     overflow-x: auto;
   }
+}
+.ui-tooltip, .arrow:after {
+  background: black;
+  border: 2px solid white;
+}
+.ui-tooltip {
+  padding: 10px 20px;
+  color: white;
+  border-radius: 20px;
+  font: bold 14px "Helvetica Neue", Sans-Serif;
+  text-transform: uppercase;
+  box-shadow: 0 0 7px black;
+}
+.arrow {
+  width: 70px;
+  height: 16px;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  margin-left: -35px;
+  bottom: -16px;
+}
+.arrow.top {
+  top: -16px;
+  bottom: auto;
+}
+.arrow.left {
+  left: 20%;
+}
+.arrow:after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: -20px;
+  width: 25px;
+  height: 25px;
+  box-shadow: 6px 5px 9px -9px black;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.arrow.top:after {
+  bottom: -20px;
+  top: auto;
 }
