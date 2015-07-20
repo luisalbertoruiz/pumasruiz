@@ -25,18 +25,52 @@ Cancha {{ $cancha->nombre }} Pumas Ruiz F.C.
 					</thead>
 					<tbody>
 						<tr>
-							<td>Locación:</td>
+							<td>Dirección:</td>
 							<td>{{$cancha->locacion}}</td>
 						</tr>
 						<tr>
 							<td>Información:</td>
 							<td>{{$cancha->info}}</td>
 						</tr>
+						<tr>
+							<td>Ubicación:</td>
+							<td></td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
+			<div class="row">
+				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xs-offset-1" id="map" style="height:300px">
+				
+				</div>
+			</div>
+			<br>
 			<a class="btn btn-primary" href='{{ URL::previous() }}'>Regresar</a>
 		</div>
 	</div>
 </div>
+@stop
+@section('css')
+@stop
+@section('js')
+<script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=true"></script>
+{{ HTML::script('js/gmaps.js') }}
+@stop
+@section('script')
+<script type="text/javascript">
+	var map;
+	jQuery(document).ready(function($)
+	{
+		map = new GMaps({
+			div: '#map',
+			lat: {{ $cancha->latitud }},
+			lng: {{ $cancha->longitud }},
+			zoom: 16
+		});
+		map.addMarker({
+		  lat: {{ $cancha->latitud }},
+		  lng: {{ $cancha->longitud }}
+		});
+	});
+</script>
 @stop

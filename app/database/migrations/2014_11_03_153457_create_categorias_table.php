@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateEquiposTable extends Migration {
+class CreateCategoriasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,11 @@ class CreateEquiposTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('equipos', function(Blueprint $table)
+		Schema::create('categorias', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('nombre');
-			$table->string('alias')->nullable();
-			$table->integer('categoria_id')->unsigned();
-			$table->foreign('categoria_id')->references('id')->on('categorias');
-			$table->string('escudo');
+			$table->string('info');
 			$table->timestamps();
 		});
 	}
@@ -32,7 +29,7 @@ class CreateEquiposTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('equipos');
+		Schema::drop('categorias');
 	}
 
 }

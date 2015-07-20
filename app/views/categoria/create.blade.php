@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title')
-Nuevo Equipo Pumas Ruiz F.C.
+Nueva Categoria Pumas Ruiz F.C.
 @stop
 @section('header')
 	@include('layout.header')
@@ -12,13 +12,13 @@ Nuevo Equipo Pumas Ruiz F.C.
 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h2 class="panel-title"><span class="glyphicon glyphicon-flag"></span> Nuevo Equipo</h2>
+			<h2 class="panel-title"><span class="glyphicon glyphicon-stats"></span> Nueva Categoria</h2>
 		</div>
 		<div class="panel-body">
-			{{ Form::open(array('route' => 'admin.equipo.store', 'files' => true)) }}
-				@include('equipo.form')
-				<button type="submit" class="btn btn-success pull-right">Registrar</button>
-				<a class="btn btn-primary" href='{{ URL::previous() }}'>Regresar</a>
+			{{ Form::open(array('route' => 'admin.categoria.store')) }}
+				@include('categoria.form')
+				{{ Form::submit('Registrar',array('class'=>'btn btn-success pull-right'))}}
+				{{ HTML::link(URL::previous(), 'Regresar',array('class' => 'btn btn-primary')) }}
 			{{ Form::close() }}
 		</div>
 	</div>

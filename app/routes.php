@@ -27,6 +27,10 @@ Route::post ('/loged', 'UsersController@loged');
 Route::get  ('/logout', 'UsersController@logout');
 // Grupo Administrador
 Route::group(array('before' => 'Sentry|inGroup:admin'), function(){
+	Route::resource('admin/cancha', 'CanchasController');
+	Route::resource('admin/categoria', 'CategoriasController');
+	Route::resource('admin/equipo', 'EquiposController');
+	Route::resource('admin/torneo', 'TorneosController');
 // Jugadores
 Route::get  ('/admin/jugador','JugadoresController@index');
 Route::get  ('/admin/jugador/crear','JugadoresController@create');
@@ -35,22 +39,6 @@ Route::get  ('/admin/jugador/mostrar/{id}','JugadoresController@show');
 Route::get  ('/admin/jugador/editar/{id}','JugadoresController@edit');
 Route::post ('/admin/jugador/actualizar/{id}','JugadoresController@update');
 Route::get  ('/admin/jugador/eliminar/{id}','JugadoresController@destroy');
-// Equipos
-Route::get  ('/admin/equipo','EquiposController@index');
-Route::get  ('/admin/equipo/crear','EquiposController@create');
-Route::post ('/admin/equipo/guardar','EquiposController@store');
-Route::get  ('/admin/equipo/mostrar/{id}','EquiposController@show');
-Route::get  ('/admin/equipo/editar/{id}','EquiposController@edit');
-Route::post ('/admin/equipo/actualizar/{id}','EquiposController@update');
-Route::get  ('/admin/equipo/eliminar/{id}','EquiposController@destroy');
-// Torneos
-Route::get  ('/admin/torneo','TorneosController@index');
-Route::get  ('/admin/torneo/crear','TorneosController@create');
-Route::post ('/admin/torneo/guardar','TorneosController@store');
-Route::get  ('/admin/torneo/mostrar/{id}','TorneosController@show');
-Route::get  ('/admin/torneo/editar/{id}','TorneosController@edit');
-Route::post ('/admin/torneo/actualizar/{id}','TorneosController@update');
-Route::get  ('/admin/torneo/eliminar/{id}','TorneosController@destroy');
 // Partidos
 Route::get  ('/admin/partido','PartidosController@index');
 Route::get  ('/admin/partido/crear','PartidosController@create');
@@ -83,8 +71,7 @@ Route::get  ('/admin/posicion/mostrar/{id}','PosicionesController@show');
 Route::get  ('/admin/posicion/editar/{id}','PosicionesController@edit');
 Route::post ('/admin/posicion/actualizar/{id}','PosicionesController@update');
 Route::get  ('/admin/posicion/eliminar/{id}','PosicionesController@destroy');
-// Canchas
-Route::resource('admin/cancha', 'CanchasController');
+
 // Resultados
 Route::get  ('/admin/resultado','ResultadosController@index');
 Route::get  ('/admin/resultado/crear','ResultadosController@create');
@@ -98,7 +85,7 @@ Route::get  ('/admin/resultado/fecha/{id}','ResultadosController@fecha');
 });
 Route::group(array('before' => 'Sentry|inGroup:users'), function(){});
 // Sentry 2
-/*Route::get('sentry', function()
+Route::get('sentry', function()
 {
 	$groupA = Sentry::createGroup([
 		'name'        => 'administrador',
@@ -134,4 +121,4 @@ Route::group(array('before' => 'Sentry|inGroup:users'), function(){});
 	$user->addGroup($groupU);
 	
 	return 'todo se genero correctamente';
-});*/
+});

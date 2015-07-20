@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title')
-Equipos Pumas Ruiz F.C.
+Categorias Pumas Ruiz F.C.
 @stop
 @section('header')
 	@include('layout.header')
@@ -12,8 +12,8 @@ Equipos Pumas Ruiz F.C.
 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h2 class="panel-title"><span class="glyphicon glyphicon-flag"></span> Equipos</span></h2>
-			{{ HTML::link(URL::to('/admin/equipo/create'), '&nbsp;Nuevo', array('class' => 'btn btn-primary btn-sm pull-right glyphicon glyphicon-plus pull-right','style'=>'margin:-25px -10px 0 0')) }}
+			<h2 class="panel-title"><span class="glyphicon glyphicon-stats"></span> Categorias</h2>
+			{{ HTML::link(URL::to('/admin/categoria/create'), '&nbsp;Nuevo', array('class' => 'btn btn-primary btn-sm pull-right glyphicon glyphicon-plus pull-right','style'=>'margin:-25px -10px 0 0')) }}
 		</div>
 		<div class="panel-body">
 			<div class="table-responsive">
@@ -21,23 +21,20 @@ Equipos Pumas Ruiz F.C.
 					<thead>
 						<tr>
 							<th>Nombre</th>
-							<th>Alias</th>
-							<th>Division</th>
+							<th>Información</th>
 							<th>Acciones</th>
-
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($equipos as $equipo)
+						@foreach($categorias as $categoria)
 						<tr>
-							<td>{{ $equipo->nombre }}</td>
-							<td>{{ $equipo->alias }}</td>
-							<td>{{ $equipo->categoria->nombre }}</td>
+							<td>{{ $categoria->nombre }}</td>
+							<td>{{ $categoria->info }}</td>
 							<td>
-							{{ link_to_route('admin.equipo.show','',$equipo->id, array('class' => 'btn btn-success btn-xs glyphicon glyphicon-eye-open')) }}
-							{{ link_to_route('admin.equipo.edit','',$equipo->id, array('class' => 'btn btn-warning btn-xs glyphicon glyphicon-pencil')) }}
-							<a href="javascript:;" onclick="eliminaRegistro('{{URL::to('/admin/equipo/'.$equipo->id)}}','{{$equipo->id}}');" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" data-original-title="eliminar"><i class="glyphicon glyphicon-trash"></i></a>
-							{{ Form::open(array('method' => 'DELETE', 'route' => array('admin.equipo.destroy', $equipo->id),'id'=>$equipo->id)) }}{{ Form::close() }}
+							{{ link_to_route('admin.categoria.show','',$categoria->id, array('class' => 'btn btn-success btn-xs glyphicon glyphicon-eye-open')) }}
+							{{ link_to_route('admin.categoria.edit','',$categoria->id, array('class' => 'btn btn-warning btn-xs glyphicon glyphicon-pencil')) }}
+							<a href="javascript:;" onclick="eliminaRegistro('{{URL::to('/admin/categoria/'.$categoria->id)}}','{{$categoria->id}}');" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" data-original-title="eliminar"><i class="glyphicon glyphicon-trash"></i></a>
+							{{ Form::open(array('method' => 'DELETE', 'route' => array('admin.categoria.destroy', $categoria->id),'id'=>$categoria->id)) }}{{ Form::close() }}
 							</td>
 						</tr>
 					@endforeach

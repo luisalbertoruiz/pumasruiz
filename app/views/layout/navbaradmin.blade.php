@@ -29,7 +29,7 @@
 					<li><a href="{{ URL::to('/admin/torneo') }}"><span class="glyphicon glyphicon-calendar"></span> Torneos</a></li>
 					<li><a href="{{ URL::to('/admin/equipo') }}"><span class="glyphicon glyphicon-flag"></span> Equipos</a></li>
 					<li><a href="{{ URL::to('/admin/cancha') }}"><span class="glyphicon glyphicon-th-large"></span> Canchas</a></li>
-					
+					<li><a href="{{ URL::to('/admin/categoria') }}"><span class="glyphicon glyphicon-stats"></span> Categorias</a></li>				
 				</ul>
 			</li>
 			<li><a href="{{ URL::to('/logout') }}"><span class="glyphicon glyphicon-log-out"></span></a></li>

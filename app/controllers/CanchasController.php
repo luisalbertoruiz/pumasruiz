@@ -38,6 +38,8 @@ class CanchasController extends \BaseController {
 		$cancha->nombre   = Str::title(Str::lower(Input::get('nombre')));
 		$cancha->locacion = Str::title(Str::lower(Input::get('locacion')));
 		$cancha->info     = Input::get('info');
+		$cancha->latitud  = Input::get('latitud');
+		$cancha->longitud = Input::get('longitud');
 		$cancha->save();
 		return Redirect::to('admin/cancha')
 		->with('alert-success', 'Se ha agregado correctamente la cancha.');
@@ -85,6 +87,8 @@ class CanchasController extends \BaseController {
 		$cancha->nombre   = Str::title(Str::lower(Input::get('nombre')));
 		$cancha->locacion = Str::title(Str::lower(Input::get('locacion')));
 		$cancha->info     = Input::get('info');
+		$cancha->latitud  = Input::get('latitud');
+		$cancha->longitud = Input::get('longitud');
 		$cancha->save();
 		return Redirect::to('admin/cancha')
 		->with('alert-success', 'Se ha editado correctamente la cancha.');

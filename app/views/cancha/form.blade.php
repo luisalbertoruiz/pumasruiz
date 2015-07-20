@@ -1,7 +1,11 @@
 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 	<div class="form-group">
 		{{ Form::label('nombre')}}
-		{{ Form::text('nombre', null, array('class'=>'form-control'))}}
+		{{ Form::text('nombre', null, array('class'=>'form-control'))}}<br>
+		{{ Form::label('latitud')}}
+		{{ Form::text('latitud', null, array('class'=>'form-control'))}}<br>
+		{{ Form::label('longitud')}}
+		{{ Form::text('longitud', null, array('class'=>'form-control'))}}
 	</div>
 </div>
 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">

@@ -12,7 +12,7 @@ Equipo {{ $equipo->nombre }} Pumas Ruiz F.C.
 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h2 class="panel-title"><span class="glyphicon glyphicon-flag"> Equipo</h2>
+			<h2 class="panel-title"><span class="glyphicon glyphicon-flag"></span> Equipo</h2>
 		</div>
 		<div class="panel-body">
 			<div class="table-responsive">
@@ -20,17 +20,17 @@ Equipo {{ $equipo->nombre }} Pumas Ruiz F.C.
 					<thead>
 						<tr>
 							<th>{{ $equipo->nombre }}</th>
-							<th>{{ HTML::image('src/escudos/'.$equipo->escudo, "escudo", array('id' => 'escudoshow', 'title' => $equipo->nombre.' '.$equipo->apellido)) }}</th>
+							<th>{{ HTML::image('src/escudos/'.$equipo->escudo, "escudo", array('id' => 'escudoshow', 'title' => $equipo->nombre)) }}</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td>Sobrenombre:</td>
-							<td>{{$equipo->sobrenombre}}</td>
+							<td>Alias:</td>
+							<td>{{ $equipo->alias }}</td>
 						</tr>
 						<tr>
-							<td>División:</td>
-							<td>{{$equipo->division}}</td>
+							<td>Categoria:</td>
+							<td>{{ $equipo->categoria->nombre }}</td>
 						</tr>
 					</tbody>
 				</table>

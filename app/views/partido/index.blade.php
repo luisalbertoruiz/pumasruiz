@@ -54,6 +54,7 @@ Partidos Pumas Ruiz F.C.
 @stop
 @section('css')
 {{ HTML::style('css/dataTables.bs.css') }}
+{{ HTML::style('css/toastr.css') }}
 @stop
 @section('js')
 {{ HTML::script('js/dataTables.js') }}

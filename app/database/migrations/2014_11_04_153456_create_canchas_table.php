@@ -18,6 +18,8 @@ class CreateCanchasTable extends Migration {
 			$table->string('nombre');
 			$table->string('locacion');
 			$table->string('info');
+			$table->string('latitud');
+			$table->string('longitud');
 			$table->timestamps();
 		});
 	}

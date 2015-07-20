@@ -101,7 +101,7 @@ class UsersController extends \BaseController {
 
 		    // Authenticate the user
 		    $user = Sentry::authenticate($credentials, false);
-		    return Redirect::to('/admin/jugador')->with('alert-success','Bienvenido al area de Administración.');
+		    return Redirect::to('/admin/partido')->with('alert-success','Bienvenido al area de Administración.');
 		}
 		catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
 		{
