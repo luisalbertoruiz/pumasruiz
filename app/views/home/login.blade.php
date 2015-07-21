@@ -9,14 +9,14 @@ Pumas Ruiz F.C.
 	@include('layout.navbar')
 @stop
 @section('content')
-	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-md-offset-4" >
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-md-offset-3 col-lg-offset-4" >
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">Inicia Sesión</h3>
 			</div>
 			<div class="panel-body">
 			<br><br>
-			  	<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-md-offset-1">
+			  	<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1">
 					<form action="{{ URL::to('loged') }}" method="POST" role="form" id="login">
 						<div class="form-group">
 							<input type="text" class="form-control" id="username" name="username" maxlength="15" autocomplete="off" placeholder="Usuario" required>
@@ -45,4 +45,7 @@ Pumas Ruiz F.C.
 		$('form').validate();
 	});
 </script>
+@stop
+@section('footer')
+	@include('home.footer')
 @stop
