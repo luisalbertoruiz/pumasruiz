@@ -216,7 +216,11 @@ label.error{
   width: 180px;
   height: 100px;
   float:left;
-  padding: 5px;
+  padding: 0px;
+  margin: 0 10px 0 0;
+  border-radius: 6px;
+  border: solid white 3px;
+  box-shadow: 2px 3px 3px rgba(0,0,0,0.5);
 }
 .linkNoticia{
   text-decoration: none;
@@ -228,6 +232,7 @@ label.error{
 }
 .noticiaP{
   min-height: 100px;
+  padding: 0px;
 }
 .seguirNoticia{
   font-size: 10px;

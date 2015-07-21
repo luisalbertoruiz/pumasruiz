@@ -11,7 +11,7 @@
 |
 */
 App::missing(function($exeption){
-return Response::view('error.error404');
+return Response::view('layout.error404');
 });
 App::after(function($request, $response)
 {
@@ -22,68 +22,28 @@ $response->headers->set('Expires','Fri, 01 Jan 1990 00:00:00 GMT');
 // Home
 Route::get  ('/','HomeController@index');
 Route::get  ('/jugadores','HomeController@players');
+Route::get  ('/noticia/{id}','HomeController@noticias');
 Route::get  ('/login','HomeController@login');
 Route::post ('/loged', 'UsersController@loged');
 Route::get  ('/logout', 'UsersController@logout');
-// Grupo Administrador
+// Administracion
 Route::group(array('before' => 'Sentry|inGroup:admin'), function(){
-	Route::resource('admin/cancha', 'CanchasController');
-	Route::resource('admin/categoria', 'CategoriasController');
-	Route::resource('admin/equipo', 'EquiposController');
-	Route::resource('admin/torneo', 'TorneosController');
-// Jugadores
-Route::get  ('/admin/jugador','JugadoresController@index');
-Route::get  ('/admin/jugador/crear','JugadoresController@create');
-Route::post ('/admin/jugador/guardar','JugadoresController@store');
-Route::get  ('/admin/jugador/mostrar/{id}','JugadoresController@show');
-Route::get  ('/admin/jugador/editar/{id}','JugadoresController@edit');
-Route::post ('/admin/jugador/actualizar/{id}','JugadoresController@update');
-Route::get  ('/admin/jugador/eliminar/{id}','JugadoresController@destroy');
-// Partidos
-Route::get  ('/admin/partido','PartidosController@index');
-Route::get  ('/admin/partido/crear','PartidosController@create');
-Route::post ('/admin/partido/guardar','PartidosController@store');
-Route::get  ('/admin/partido/mostrar/{id}','PartidosController@show');
-Route::get  ('/admin/partido/editar/{id}','PartidosController@edit');
-Route::post ('/admin/partido/actualizar/{id}','PartidosController@update');
-Route::get  ('/admin/partido/eliminar/{id}','PartidosController@destroy');
-// Goleadores
-Route::get  ('/admin/goleador','GoleadoresController@index');
-Route::get  ('/admin/goleador/crear','GoleadoresController@create');
-Route::post ('/admin/goleador/guardar','GoleadoresController@store');
-Route::get  ('/admin/goleador/mostrar/{id}','GoleadoresController@show');
-Route::get  ('/admin/goleador/editar/{id}','GoleadoresController@edit');
-Route::post ('/admin/goleador/actualizar/{id}','GoleadoresController@update');
-Route::get  ('/admin/goleador/eliminar/{id}','GoleadoresController@destroy');
-// Marcadores
-Route::get  ('/admin/marcador','MarcadoresController@index');
-Route::get  ('/admin/marcador/crear','MarcadoresController@create');
-Route::post ('/admin/marcador/guardar','MarcadoresController@store');
-Route::get  ('/admin/marcador/mostrar/{id}','MarcadoresController@show');
-Route::get  ('/admin/marcador/editar/{id}','MarcadoresController@edit');
-Route::post ('/admin/marcador/actualizar/{id}','MarcadoresController@update');
-Route::get  ('/admin/marcador/eliminar/{id}','MarcadoresController@destroy');
-// Posiciones
-Route::get  ('/admin/posicion','PosicionesController@index');
-Route::get  ('/admin/posicion/crear','PosicionesController@create');
-Route::post ('/admin/posicion/guardar','PosicionesController@store');
-Route::get  ('/admin/posicion/mostrar/{id}','PosicionesController@show');
-Route::get  ('/admin/posicion/editar/{id}','PosicionesController@edit');
-Route::post ('/admin/posicion/actualizar/{id}','PosicionesController@update');
-Route::get  ('/admin/posicion/eliminar/{id}','PosicionesController@destroy');
-
-// Resultados
-Route::get  ('/admin/resultado','ResultadosController@index');
-Route::get  ('/admin/resultado/crear','ResultadosController@create');
-Route::post ('/admin/resultado/guardar','ResultadosController@store');
-Route::get  ('/admin/resultado/mostrar/{id}','ResultadosController@show');
-Route::get  ('/admin/resultado/editar/{id}','ResultadosController@edit');
-Route::post ('/admin/resultado/actualizar/{id}','ResultadosController@update');
-Route::get  ('/admin/resultado/eliminar/{id}','ResultadosController@destroy');
-Route::get  ('/admin/resultado/visitantes/{id}','ResultadosController@visitantes');
-Route::get  ('/admin/resultado/fecha/{id}','ResultadosController@fecha');
+	Route::resource('/admin/cancha', 'CanchasController');
+	Route::resource('/admin/categoria', 'CategoriasController');
+	Route::resource('/admin/equipo', 'EquiposController');
+	Route::resource('/admin/torneo', 'TorneosController');
+	Route::resource('/admin/noticia', 'NoticiasController');
+	Route::resource('/admin/jugador', 'JugadoresController');
+	Route::resource('/admin/partido','PartidosController@index');
+	Route::resource('/admin/goleador','GoleadoresController@index');
+	Route::resource('/admin/marcador','MarcadoresController@index');
+	Route::resource('/admin/posicion','PosicionesController@index');
+	Route::resource('/admin/resultado','ResultadosController@index');
+	Route::get  ('/admin/resultado/visitantes/{id}','ResultadosController@visitantes');
+	Route::get  ('/admin/resultado/fecha/{id}','ResultadosController@fecha');
 });
-Route::group(array('before' => 'Sentry|inGroup:users'), function(){});
+
+/*Route::group(array('before' => 'Sentry|inGroup:users'), function(){});
 // Sentry 2
 Route::get('sentry', function()
 {

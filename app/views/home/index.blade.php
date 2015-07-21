@@ -36,7 +36,7 @@ Pumas Ruiz F.C.
 			$(this).find('span img').attr('src', '{{asset("src/logo-azul-sm.png")}}');
 		});
 		$('.noticiaP').succinct({
-			size: 260
+			size: 255
 		});
 	});
 </script>
