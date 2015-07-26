@@ -12,7 +12,7 @@
             {{ HTML::image('src/escudos/default.png', 'visita',array('id'=>'visita','title'=>'Peñarol')) }}
             <h3>vs</h3>
             <h3>domingo 2, 11:00 hrs</h3>
-            <h3>Morelos I</h3>
+            <h3>Morelos II</h3>
         </div>
     </div>
 </div>
