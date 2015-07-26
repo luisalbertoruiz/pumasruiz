@@ -222,6 +222,13 @@ label.error{
   border: solid white 3px;
   box-shadow: 2px 3px 3px rgba(0,0,0,0.5);
 }
+.noticiaImg{
+  padding: 0px;
+  margin: 0 auto 20px auto;
+  border-radius: 6px;
+  border: solid white 3px;
+  box-shadow: 2px 3px 3px rgba(0,0,0,0.5);
+}
 .linkNoticia{
   text-decoration: none;
   color: #333;

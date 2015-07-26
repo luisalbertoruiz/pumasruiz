@@ -23,6 +23,20 @@ class HomeController extends BaseController {
 	{
 		return View::make('home.index');
 	}
+
+	/**
+	 * muestra alguna noticia del equipo.
+	 * GET /noticia
+	 *
+	 * @return Response
+	 */
+	public function noticias($id)
+	{
+		//$noticia = Noticia::find($id);
+		return View::make('home.noticia');
+		//->with('noticia', $noticia);
+	}
+
 	/**
 	 * muestra todos los jugadores del equipo.
 	 * GET /jugadores
