@@ -9,7 +9,7 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="proximo">
             <h4>Próximo partido</h4>
             {{ HTML::image('src/escudos/pumas.png', 'local',array('id'=>'local','title'=>'Pumas Ruiz FC')) }}
-            {{ HTML::image('src/escudos/default.png', 'visita',array('id'=>'visita','title'=>'Peñarol')) }}
+            {{ HTML::image('src/escudos/penarol.png', 'visita',array('id'=>'visita','title'=>'Peñarol')) }}
             <h3>vs</h3>
             <h3>domingo 2, 11:00 hrs</h3>
             <h3>Morelos II</h3>
