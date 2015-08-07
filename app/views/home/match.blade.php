@@ -11,7 +11,7 @@
             {{ HTML::image('src/escudos/pumas.png', 'local',array('id'=>'local','title'=>'Pumas Ruiz FC')) }}
             {{ HTML::image('src/escudos/river.png', 'visita',array('id'=>'visita','title'=>'River Plate')) }}
             <h3>vs</h3>
-            <h3>sabado 5, 17:00 hrs</h3>
+            <h3>sabado 8, 17:00 hrs</h3>
             <h3>Vicente Guerrero</h3>
         </div>
     </div>
