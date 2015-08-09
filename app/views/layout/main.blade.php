@@ -14,11 +14,7 @@
         {{ HTML::style('css/datepicker.css') }}
         {{ HTML::style('css/timepicker.css') }}
 		<!-- JavaScript -->
-		{{ HTML::script('js/jquery.js') }}
-		{{ HTML::script('js/bootstrap.js') }}
-		{{ HTML::script('js/ui.js') }}
-		{{ HTML::script('js/datepicker.js') }}
-		{{ HTML::script('js/timepicker.js') }}
+		
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -36,6 +32,11 @@
 		@yield('css')
 		@yield('js')
 		@include('layout.alertas')
+		{{ HTML::script('js/jquery.js') }}
+		{{ HTML::script('js/bootstrap.js') }}
+		{{ HTML::script('js/ui.js') }}
+		{{ HTML::script('js/datepicker.js') }}
+		{{ HTML::script('js/timepicker.js') }}
 		@yield('script')
 		<script>
 		$(document).ready(function($) {
