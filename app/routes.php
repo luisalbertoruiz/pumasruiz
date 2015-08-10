@@ -22,6 +22,7 @@ $response->headers->set('Expires','Fri, 01 Jan 1990 00:00:00 GMT');
 // Home
 Route::get  ('/','HomeController@index');
 Route::get  ('/jugadores','HomeController@players');
+Route::get  ('/galeria','HomeController@gallery');
 Route::get  ('/noticia/{id}','HomeController@noticias');
 Route::get  ('/login','HomeController@login');
 Route::post ('/loged', 'UsersController@loged');

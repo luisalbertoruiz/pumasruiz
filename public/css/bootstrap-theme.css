@@ -303,3 +303,35 @@ textarea{
   bottom: -20px;
   top: auto;
 }
+.modal-backdrop{
+  z-index:0;
+}
+.folder {
+    width: auto;
+    height: auto;
+    margin: 0 auto 20px auto;
+    margin-top: 50px;
+    position: relative;
+    background-color: #708090;
+    border-radius: 0 6px 6px 6px;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.59);
+}
+
+.folder:before {
+    content: '';
+    width: 50%;
+    height: 15%;
+    border-radius: 0 20px 0 0;
+    background-color: #708090;
+    position: absolute;
+    top: -15%;
+    left: 0px;
+}
+.galeria{
+  padding: 10px;
+}
+.tituloFolder{
+  margin: -5% 0 0 10px;
+  position: absolute;
+  color: white;
+}

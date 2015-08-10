@@ -13,7 +13,7 @@
 			<li><a href="#"><span class="glyphicon glyphicon-user"></span> Jugadores</a></li>
 			<li><a href="#"><span class="glyphicon glyphicon-play"></span> Partidos</a></li>
 			<li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Estadisticas</a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-picture"></span> Galeria</a></li>
+			<li><a href="{{ URL::to('galeria') }}"><span class="glyphicon glyphicon-picture"></span> Galeria</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a class="fbnb" href="https://www.facebook.com/pages/Pumas-Ruiz/1435980493396037">{{ HTML::image('src/fbpr.png', 'facebook',array('class'=>'home')) }}</a></li>

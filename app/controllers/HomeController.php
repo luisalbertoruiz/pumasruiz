@@ -25,6 +25,18 @@ class HomeController extends BaseController {
 	}
 
 	/**
+	 * muestra todos los jugadores del equipo.
+	 * GET /jugadores
+	 *
+	 * @return Response
+	 */
+	public function gallery()
+	{
+		return View::make('home.gallery');
+	}
+
+
+	/**
 	 * muestra alguna noticia del equipo.
 	 * GET /noticia
 	 *
