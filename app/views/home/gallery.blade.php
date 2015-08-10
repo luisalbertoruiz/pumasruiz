@@ -56,7 +56,7 @@ Pumas Ruiz F.C.
 @section('footer')
 	@include('home.footer')
 @stop
-<div class="modal fade col-xs-10 col-xs-offset-1" id="modal-id">
+<div class="modal fade" id="modal-id">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
