@@ -17,9 +17,12 @@ class CreateTorneosTable extends Migration {
 			$table->increments('id');
 			$table->string('nombre');
 			$table->integer('fechas');
-			$table->string('tipo');
-			$table->string('competicion');
-			$table->string('enfrentamiento');
+			$table->integer('tipoTorneo_id')->unsigned();
+			$table->foreign('tipoTorneo_id')->references('id')->on('catalogo')->onDelete('cascade');
+			$table->integer('competicion_id')->unsigned();
+			$table->foreign('competicion_id')->references('id')->on('catalogo')->onDelete('cascade');
+			$table->integer('enfrentamiento_id')->unsigned();
+			$table->foreign('enfrentamiento_id')->references('id')->on('catalogo')->onDelete('cascade');
 			$table->date('finicio');
 			$table->date('ffinal');
 			$table->timestamps();

@@ -82,4 +82,4 @@ Route::get('sentry', function()
 	$user->addGroup($groupU);
 	
 	return 'todo se genero correctamente';
-});
+});*/

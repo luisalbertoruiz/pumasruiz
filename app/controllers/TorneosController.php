@@ -10,8 +10,9 @@ class TorneosController extends \BaseController {
 	 */
 	public function index()
 	{
-		$torneos = DB::table('torneos')->orderBy('finicio')->get();
-		return View::make('torneo.index')->with('torneos',$torneos);
+		$torneos = Torneo::all();
+		return View::make('torneo.index')
+		->with('torneos',$torneos);
 	}
 
 	/**
@@ -22,7 +23,13 @@ class TorneosController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('torneo.create');
+		$competiciones   = DB::table('catalogo')->where('metacatalogo_id', '1')->lists('nombre','id');
+		$enfrentamientos = DB::table('catalogo')->where('metacatalogo_id', '2')->lists('nombre','id');
+		$tipos           = DB::table('catalogo')->where('metacatalogo_id', '3')->lists('nombre','id');
+		return View::make('torneo.create')
+		->with('competiciones',$competiciones)
+		->with('enfrentamientos',$enfrentamientos)
+		->with('tipos',$tipos);
 	}
 
 	/**
@@ -33,18 +40,19 @@ class TorneosController extends \BaseController {
 	 */
 	public function store()
 	{
-		$tipo = Input::get('tipo');
-		$finicio = date_format(date_create(Input::get('finicio')),'y-m');
-		$ffinal = date_format(date_create(Input::get('ffinal')),'y-m');
-		$nombre = $tipo.' '.$finicio.'/'.$ffinal;
-		$torneo = new Torneo();
-		$torneo->nombre         = $nombre;
-		$torneo->fechas         = Input::get('fechas');
-		$torneo->tipo           = $tipo;
-		$torneo->competicion    = Input::get('competicion');
-		$torneo->enfrentamiento = Input::get('enfrentamiento');
-		$torneo->finicio        = Input::get('finicio');
-		$torneo->ffinal         = Input::get('ffinal');
+		$tipoId                    = Input::get('tipoTorneo_id');
+		$nombre                    = Catalogo::find($tipoId);
+		$finicio                   = date_format(date_create(Input::get('finicio')),'y-m');
+		$ffinal                    = date_format(date_create(Input::get('ffinal')),'y-m');
+		$nombre                    = $nombre->nombre.' '.$finicio.'/'.$ffinal;
+		$torneo                    = new Torneo();
+		$torneo->nombre            = $nombre;
+		$torneo->fechas            = Input::get('fechas');
+		$torneo->tipoTorneo_id     = Input::get('tipoTorneo_id');
+		$torneo->competicion_id    = Input::get('competicion_id');
+		$torneo->enfrentamiento_id = Input::get('enfrentamiento_id');
+		$torneo->finicio           = Input::get('finicio');
+		$torneo->ffinal            = Input::get('ffinal');
 		$torneo->save();
 		return Redirect::to('admin/torneo')
 		->with('flash_notice', 'Se ha agregado correctamente el torneo.');
@@ -60,7 +68,8 @@ class TorneosController extends \BaseController {
 	public function show($id)
 	{
 		$torneo = Torneo::find($id);
-		return View::make('torneo.show')->with('torneo',$torneo);
+		return View::make('torneo.show')
+		->with('torneo',$torneo);
 	}
 
 	/**
@@ -72,8 +81,15 @@ class TorneosController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		$competiciones   = DB::table('catalogo')->where('metacatalogo_id', '1')->lists('nombre','id');
+		$enfrentamientos = DB::table('catalogo')->where('metacatalogo_id', '2')->lists('nombre','id');
+		$tipos           = DB::table('catalogo')->where('metacatalogo_id', '3')->lists('nombre','id');
 		$torneo = Torneo::find($id);
-		return View::make('torneo.edit')->with('torneo',$torneo);
+		return View::make('torneo.edit')
+		->with('competiciones',$competiciones)
+		->with('enfrentamientos',$enfrentamientos)
+		->with('tipos',$tipos)
+		->with('torneo',$torneo);
 	}
 
 	/**
@@ -85,18 +101,19 @@ class TorneosController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$tipo = Input::get('tipo');
-		$finicio = date_format(date_create(Input::get('finicio')),'y-m');
-		$ffinal = date_format(date_create(Input::get('ffinal')),'y-m');
-		$nombre = $tipo.' '.$finicio.'/'.$ffinal;
-		$torneo   = Torneo::find($id);
-		$torneo->nombre         = $nombre;
-		$torneo->fechas         = Input::get('fechas');
-		$torneo->tipo           = Input::get('tipo');
-		$torneo->competicion    = Input::get('competicion');
-		$torneo->enfrentamiento = Input::get('enfrentamiento');
-		$torneo->finicio        = Input::get('finicio');
-		$torneo->ffinal         = Input::get('ffinal');
+		$tipoId                    = Input::get('tipoTorneo_id');
+		$nombre                    = Catalogo::find($tipoId);
+		$finicio                   = date_format(date_create(Input::get('finicio')),'y-m');
+		$ffinal                    = date_format(date_create(Input::get('ffinal')),'y-m');
+		$nombre                    = $nombre->nombre.' '.$finicio.'/'.$ffinal;
+		$torneo                    = Torneo::find($id);
+		$torneo->nombre            = $nombre;
+		$torneo->fechas            = Input::get('fechas');
+		$torneo->tipoTorneo_id     = Input::get('tipoTorneo_id');
+		$torneo->competicion_id    = Input::get('competicion_id');
+		$torneo->enfrentamiento_id = Input::get('enfrentamiento_id');
+		$torneo->finicio           = Input::get('finicio');
+		$torneo->ffinal            = Input::get('ffinal');
 		$torneo->save();
 		return Redirect::to('admin/torneo')
 		->with('flash_warning', 'Se ha editado correctamente el torneo.');

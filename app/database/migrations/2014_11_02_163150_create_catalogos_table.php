@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateEquiposTable extends Migration {
+class CreateCatalogosTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,13 @@ class CreateEquiposTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('equipos', function(Blueprint $table)
+		Schema::create('catalogo', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('nombre');
-			$table->string('alias')->nullable();
-			$table->integer('categoria_id')->unsigned();
-			$table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
-			$table->string('escudo');
+			$table->string('descripcion');
+			$table->integer('metacatalogo_id')->unsigned();
+			$table->foreign('metacatalogo_id')->references('id')->on('metacatalogo')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}
@@ -32,7 +31,7 @@ class CreateEquiposTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('equipos');
+		Schema::drop('catalogo');
 	}
 
 }

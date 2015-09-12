@@ -30,15 +30,15 @@
 						</tr>
 						<tr>
 							<td>Tipo:</td>
-							<td>{{$torneo->tipo}}</td>
+							<td>{{$torneo->tipo->nombre}}</td>
 						</tr>
 						<tr>
 							<td>Competición:</td>
-							<td>{{$torneo->competicion}}</td>
+							<td>{{$torneo->competicion->nombre}}</td>
 						</tr>
 						<tr>
 							<td>Enfrentamiento:</td>
-							<td>{{$torneo->enfrentamiento}}</td>
+							<td>{{$torneo->enfrentamiento->nombre}}</td>
 						</tr>
 						<tr>
 							<td>F. Inicial:</td>
