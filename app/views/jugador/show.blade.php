@@ -12,7 +12,7 @@
 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h2 class="panel-title"><span class="glyphicon glyphicon-user"> Jugador</h2>
+			<h2 class="panel-title"><span class="glyphicon glyphicon-user"></span> Jugador</h2>
 		</div>
 		<div class="panel-body">
 			<div class="table-responsive">
@@ -26,11 +26,11 @@
 					<tbody>
 						<tr>
 							<td>Sobrenombre:</td>
-							<td>{{$jugador->sobrenombre}}</td>
+							<td>{{$jugador->alias}}</td>
 						</tr>
 						<tr>
 							<td>Posición:</td>
-							<td>{{$jugador->posicion}}</td>
+							<td>{{$jugador->posicion->nombre}}</td>
 						</tr>
 						<tr>
 							<td>Playera:</td>

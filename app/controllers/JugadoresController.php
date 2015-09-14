@@ -10,8 +10,10 @@ class JugadoresController extends \BaseController {
 	 */
 	public function index()
 	{
-		$jugadores = DB::table('jugadores')->orderBy('playera')->get();
-		return View::make('jugador.index')->with('jugadores',$jugadores);
+		
+		$jugadores  = Jugador::all();
+		return View::make('jugador.index')
+		->with('jugadores',$jugadores);
 	}
 
 	/**
@@ -22,7 +24,14 @@ class JugadoresController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('jugador.create');
+		$playera = array();
+		for ($i=1; $i < 51; $i++) { 
+			$playera[$i] = $i;
+		}
+		$posiciones = DB::table('catalogo')->where('metacatalogo_id', '4')->lists('nombre','id');
+		return View::make('jugador.create')
+		->with('playera',$playera)
+		->with('posiciones',$posiciones);
 	}
 
 	/**
@@ -35,7 +44,7 @@ class JugadoresController extends \BaseController {
 	{
 		$nombre   = Str::title(Str::lower(Input::get('nombre')));
 		$apellido = Str::title(Str::lower(Input::get('apellido')));
-		$snombre  = Str::title(Str::lower(Input::get('sobrenombre')));
+		$alias    = Str::title(Str::lower(Input::get('alias')));
 		$destino  = public_path().'/src/fotos/';
 		if (Input::file('foto')) {
 			$extension = Input::file('foto')->getClientOriginalExtension();
@@ -45,11 +54,11 @@ class JugadoresController extends \BaseController {
 		}else{
 			$foto      = 'default.jpg';
 		}
-		$jugador = new Jugador();
+		$jugador              = new Jugador();
 		$jugador->nombre      = $nombre;
 		$jugador->apellido    = $apellido;
-		$jugador->sobrenombre = $snombre;
-		$jugador->posicion    = Input::get('posicion');
+		$jugador->alias       = $alias;
+		$jugador->posicion_id = Input::get('posicion_id');
 		$jugador->playera     = Input::get('playera');
 		$jugador->telefono    = Input::get('telefono');
 		$jugador->celular     = Input::get('celular');
@@ -71,7 +80,8 @@ class JugadoresController extends \BaseController {
 	public function show($id)
 	{
 		$jugador = Jugador::find($id);
-		return View::make('jugador.show')->with('jugador',$jugador);
+		return View::make('jugador.show')
+		->with('jugador',$jugador);
 	}
 
 	/**
@@ -83,8 +93,16 @@ class JugadoresController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		$playera = array();
+		for ($i=1; $i < 51; $i++) { 
+			$playera[$i] = $i;
+		}
+		$posiciones = DB::table('catalogo')->where('metacatalogo_id', '4')->lists('nombre','id');
 		$jugador = Jugador::find($id);
-		return View::make('jugador.edit')->with('jugador',$jugador);
+		return View::make('jugador.edit')
+		->with('playera',$playera)
+		->with('posiciones',$posiciones)
+		->with('jugador',$jugador);
 	}
 
 	/**
@@ -99,7 +117,7 @@ class JugadoresController extends \BaseController {
 		$jugador  = Jugador::find($id);
 		$nombre   = Str::title(Str::lower(Input::get('nombre')));
 		$apellido = Str::title(Str::lower(Input::get('apellido')));
-		$snombre  = Str::title(Str::lower(Input::get('sobrenombre')));
+		$alias    = Str::title(Str::lower(Input::get('alias')));
 		$destino  = public_path().'/src/fotos/';
 		if (Input::file('foto')) {
 			$extension = Input::file('foto')->getClientOriginalExtension();
@@ -111,8 +129,8 @@ class JugadoresController extends \BaseController {
 		}
 		$jugador->nombre      = $nombre;
 		$jugador->apellido    = $apellido;
-		$jugador->sobrenombre = $snombre;
-		$jugador->posicion    = Input::get('posicion');
+		$jugador->alias       = $alias;
+		$jugador->posicion_id = Input::get('posicion_id');
 		$jugador->playera     = Input::get('playera');
 		$jugador->telefono    = Input::get('telefono');
 		$jugador->celular     = Input::get('celular');

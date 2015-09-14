@@ -18,7 +18,8 @@ class CreateJugadoresTable extends Migration {
 			$table->string('nombre');
 			$table->string('apellido');
 			$table->string('alias')->nullable();
-			$table->string('posicion');
+			$table->integer('posicion_id')->unsigned();
+			$table->foreign('posicion_id')->references('id')->on('catalogo')->onDelete('cascade');
 			$table->integer('playera')->nullable();
 			$table->string('telefono')->nullable();
 			$table->string('celular')->nullable();
