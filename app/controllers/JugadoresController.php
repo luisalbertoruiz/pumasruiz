@@ -67,7 +67,7 @@ class JugadoresController extends \BaseController {
 		$jugador->foto        = $foto;
 		$jugador->save();
 		return Redirect::to('admin/jugador')
-		->with('flash_notice', 'Se ha agregado correctamente el jugador.');
+		->with('alert-success', 'Se ha agregado correctamente el jugador.');
 	}
 
 	/**
@@ -139,7 +139,29 @@ class JugadoresController extends \BaseController {
 		$jugador->foto        = $foto;
 		$jugador->save();
 		return Redirect::to('admin/jugador')
-		->with('flash_warning', 'Se ha editado correctamente el jugador.');
+		->with('alert-success', 'Se ha editado correctamente el jugador.');
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 * PUT /jugadores/{id}
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function baja($id)
+	{
+		$jugador  = Jugador::find($id);
+		$status = $jugador->status;
+		if ($status == "Activo") {
+			$jugador->status = "Baja";
+		}
+		if ($status == "Baja") {
+			$jugador->status = "Activo";
+		}
+		$jugador->save();
+		return Redirect::to('admin/jugador')
+		->with('alert-success', 'Se ha editado correctamente el jugador.');
 	}
 
 	/**
@@ -154,7 +176,7 @@ class JugadoresController extends \BaseController {
 		$jugador = Jugador::find($id);
 		$jugador->delete();
 		return Redirect::to('admin/jugador')
-		->with('flash_error', 'Se ha eliminado correctamente el jugador.');
+		->with('alert-success', 'Se ha eliminado correctamente el jugador.');
 	}
 
 }

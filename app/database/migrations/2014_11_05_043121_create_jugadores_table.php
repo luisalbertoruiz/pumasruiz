@@ -26,6 +26,7 @@ class CreateJugadoresTable extends Migration {
 			$table->string('direccion')->nullable();
 			$table->string('email')->nullable();
 			$table->string('foto')->nullable();
+			$table->string('status')->default('Activo');
 			$table->timestamps();
 		});
 	}

@@ -10,7 +10,7 @@ class GaleriasController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		
 	}
 
 	/**

@@ -1,0 +1,1 @@
+/var/www/pumasruiz/app/views/galerias/edit.blade.php

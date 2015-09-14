@@ -179,5 +179,33 @@ class DatabaseSeeder extends Seeder {
             'group_id' =>'2'
             )
         ));
+        DB::table('sliders')->delete();
+        DB::table('sliders')->insert(array(
+            array(
+            'imagen'  =>'1s',
+            'created_at' =>date('Y-m-d H:m:s'),
+            'updated_at' =>date('Y-m-d H:m:s')
+            ),
+            array(
+            'imagen'  =>'2s',
+            'created_at' =>date('Y-m-d H:m:s'),
+            'updated_at' =>date('Y-m-d H:m:s')
+            ),
+            array(
+            'imagen'  =>'3s',
+            'created_at' =>date('Y-m-d H:m:s'),
+            'updated_at' =>date('Y-m-d H:m:s')
+            ),
+            array(
+            'imagen'  =>'4s',
+            'created_at' =>date('Y-m-d H:m:s'),
+            'updated_at' =>date('Y-m-d H:m:s')
+            ),
+            array(
+            'imagen'  =>'5s',
+            'created_at' =>date('Y-m-d H:m:s'),
+            'updated_at' =>date('Y-m-d H:m:s')
+            ),
+        ));
     }
 }

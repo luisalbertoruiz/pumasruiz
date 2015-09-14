@@ -19,11 +19,12 @@
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-tasks"></span><b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><a href="#"><span class="glyphicon glyphicon-usd"></span> Aportacion</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-usd"></span> Aportaciones</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-ok"></span> Asistencia</a></li>
 					<li class="divider"></li>
-					<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Noticias</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-picture"></span> Galeria</a></li>
+					<li><a href="{{ URL::to('/admin/noticia') }}"><span class="glyphicon glyphicon-list-alt"></span> Noticias</a></li>
+					<li><a href="{{ URL::to('/admin/galeria') }}"><span class="glyphicon glyphicon-camera"></span> Galeria</a></li>
+					<li><a href="{{ URL::to('/admin/slider') }}"><span class="glyphicon glyphicon-picture"></span> Slider</a></li>
 					<li class="divider"></li>
 					<li><a href="{{ URL::to('/admin/jugador') }}"><span class="glyphicon glyphicon-user"></span> Jugadores</a></li>
 					<li><a href="{{ URL::to('/admin/torneo') }}"><span class="glyphicon glyphicon-calendar"></span> Torneos</a></li>
