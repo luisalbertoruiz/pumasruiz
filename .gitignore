@@ -1,3 +1,5 @@
 app/config/app.php
 app/config/database.php
 /nbproject/private/
+public/src/
+/public/src
