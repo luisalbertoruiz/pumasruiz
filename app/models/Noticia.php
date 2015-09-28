@@ -1,5 +1,5 @@
 <?php
 
-class Notica extends \Eloquent {
+class Noticia extends \Eloquent {
 	protected $fillable = [];
 }

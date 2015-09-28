@@ -13,7 +13,7 @@ Goleadores Pumas Ruiz F.C.
 	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h2 class="panel-title"><span class="glyphicon glyphicon-record"></span> Goleadores</h2>
-			{{ HTML::link(URL::to('/admin/goleador/crear'), '&nbsp;Nuevo', array('class' => 'btn btn-primary btn-sm pull-right glyphicon glyphicon-plus pull-right','style'=>'margin:-25px -10px 0 0')) }}
+			{{ HTML::link(URL::to('/admin/goleador/create'), '&nbsp;Nuevo', array('class' => 'btn btn-primary btn-sm pull-right glyphicon glyphicon-plus pull-right','style'=>'margin:-25px -10px 0 0')) }}
 		</div>
 		<div class="panel-body">
 			<div class="table-responsive">
@@ -29,24 +29,30 @@ Goleadores Pumas Ruiz F.C.
 					<tbody>
 						@foreach($goleadores as $goleador)
 						<tr>
-							<td>{{ $goleador->nombre.' '.$goleador->apellido }}</td>
-							<td>{{ $goleador->equipo.' '.$goleador->dia }}</td>
+							<td>{{ $goleador->jugador->nombre.' '.$goleador->jugador->apellido }}</td>
+							<td>{{ $goleador->partido->equipo->nombre.' '.$goleador->partido->dia.' F-'.$goleador->partido->fecha }}</td>
 							<td>{{ $goleador->goles }}</td>
-							<td>{{ HTML::link(URL::to('/admin/goleador/mostrar/'.$goleador->id), '', array('class' => 'btn btn-success btn-xs glyphicon glyphicon-eye-open' )) }}
-							{{ HTML::link(URL::to('/admin/goleador/editar/'.$goleador->id), '', array('class' => 'btn btn-warning btn-xs glyphicon glyphicon-pencil')) }}
-							{{ HTML::link(URL::to('/admin/goleador/eliminar/'.$goleador->id), '', array('class' => 'btn btn-danger btn-xs glyphicon glyphicon-trash')) }}</td>
+							<td>
+								{{-- link_to_route('admin.goleador.show','',$goleador->id, array('class' => 'btn btn-success btn-xs glyphicon glyphicon-eye-open')) --}}
+								{{ link_to_route('admin.goleador.edit','',$goleador->id, array('class' => 'btn btn-warning btn-xs glyphicon glyphicon-pencil')) }}
+								<a href="javascript:;" onclick="eliminaRegistro('{{URL::to('/admin/goleador/'.$goleador->id)}}','{{$goleador->id}}');" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" data-original-title="eliminar"><i class="glyphicon glyphicon-trash"></i></a>
+								{{ Form::open(array('method' => 'DELETE', 'route' => array('admin.goleador.destroy', $goleador->id),'id'=>$goleador->id)) }}{{ Form::close() }}
+							</td>
 						</tr>
 					@endforeach
 					</tbody>
 				</table>
-				{{ $goleadores->links() }}
 			</div>
 		</div>
 	</div>
 </div>
+<div id="dialog" title="¿Deseas eliminar el registro?">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span> Se eliminara permanentemente</p>
+</div>
 @stop
 @section('css')
 {{ HTML::style('css/dataTables.bs.css') }}
+{{ HTML::style('css/toastr.css') }}
 @stop
 @section('js')
 {{ HTML::script('js/dataTables.js') }}
@@ -60,6 +66,35 @@ Goleadores Pumas Ruiz F.C.
 		$('table').DataTable({
 			"lengthMenu": [[5, 10, -1],[5, 10, 'Todo']]
 		});
+		$("#dialog").dialog({
+			resizable: false,
+			height:170,
+			modal: true,
+			autoOpen: false,
+			show: {
+			effect: "bounce",
+			duration: 500
+			},
+			hide: {
+			effect: "fade",
+			duration: 50
+			}
+		});
 	});
+function eliminaRegistro (url,id) {
+	$( "#dialog" ).dialog( "open" );
+	$( "#dialog" ).dialog({
+		buttons: {
+			"No": function() {
+				$( this ).dialog( "close" );
+
+			},
+			"Si": function() {
+				$( this ).dialog( "close" );
+				$('#'+id).submit();
+			}
+		}
+	});
+}
 </script>
 @stop

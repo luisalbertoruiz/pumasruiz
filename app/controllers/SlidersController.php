@@ -23,7 +23,7 @@ class SlidersController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return Redirect::to('admin/slider');
 	}
 
 	/**
@@ -34,7 +34,7 @@ class SlidersController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		return Redirect::to('admin/slider');
 	}
 
 	/**
@@ -80,11 +80,14 @@ class SlidersController extends \BaseController {
 			if ($extension == "jpg") {
 				$imagen    = $id.'s.jpg';
 				$file      = Input::file('imagen');
-				$file->move($destino,$imagen);
-				$img = Image::make('D:/servidor/www/pumasruiz/public/src/slider/1s.jpg');
-				// $img->resize(420, null, function ($constraint) {
-				//     $constraint->aspectRatio();
-				// });
+				$img = Image::make($file->getRealPath());
+				$img->resize(945, null, function ($constraint) {
+				     $constraint->aspectRatio();
+				 })->crop(945, 420)->save($destino.$imagen);
+				$img->resize(189, null, function ($constraint) {
+				     $constraint->aspectRatio();
+				 })
+				->crop(189, 84)->save($destino.'/miniaturas/'.$imagen);
 				$tipo = 'alert-success';
 				$mensaje ="La imagen actualizo correctamente";
 			} else {
@@ -95,8 +98,7 @@ class SlidersController extends \BaseController {
 			$tipo = 'alert-warning';
 			$mensaje ="No seleccionaste ninguna imagen";
 		}
-		return Redirect::to('admin/slider')
-		->with($tipo, $mensaje);
+		Session::put($tipo, $mensaje);
 	}
 
 	/**
@@ -108,7 +110,7 @@ class SlidersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		return Redirect::to('admin/slider');
 	}
 
 }

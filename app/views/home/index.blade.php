@@ -5,6 +5,7 @@
 @section('title')
 Pumas Ruiz F.C.
 @stop
+<?php setlocale(LC_ALL, 'es_MX.UTF-8'); ?>
 @section('header')
 	@include('layout.header')
 @stop

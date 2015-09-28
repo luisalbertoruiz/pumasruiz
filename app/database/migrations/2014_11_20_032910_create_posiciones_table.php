@@ -16,12 +16,13 @@ class CreatePosicionesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('equipo_id')->unsigned();
-			$table->foreign('equipo_id')->references('id')->on('equipos');
+			$table->foreign('equipo_id')->references('id')->on('equipos')->onDelete('cascade');
 			$table->integer('fecha');
 			$table->integer('goles_f');
 			$table->integer('goles_c');
 			$table->integer('torneo_id')->unsigned();
-			$table->foreign('torneo_id')->references('id')->on('torneos');
+			$table->foreign('torneo_id')->references('id')->on('torneos')->onDelete('cascade');
+			$table->integer('puntos');
 			$table->timestamps();
 		});
 	}

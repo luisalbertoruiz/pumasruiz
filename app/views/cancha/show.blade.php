@@ -12,7 +12,7 @@ Cancha {{ $cancha->nombre }} Pumas Ruiz F.C.
 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h2 class="panel-title"><span class="glyphicon glyphicon-th-large"> Cancha</h2>
+			<h2 class="panel-title"><span class="glyphicon glyphicon-th-large"></span> Cancha</h2>
 		</div>
 		<div class="panel-body">
 			<div class="table-responsive">
@@ -40,11 +40,10 @@ Cancha {{ $cancha->nombre }} Pumas Ruiz F.C.
 				</table>
 			</div>
 			<div class="row">
-				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xs-offset-1" id="map" style="height:300px">
-				
-				</div>
+				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xs-offset-1" id="map" style="height:300px"></div>
 			</div>
-			<br>
+		</div>
+		<div class="panel-footer">
 			<a class="btn btn-primary" href='{{ URL::previous() }}'>Regresar</a>
 		</div>
 	</div>

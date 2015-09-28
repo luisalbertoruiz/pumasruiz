@@ -24,8 +24,13 @@ class MarcadoresController extends \BaseController {
 	 */
 	public function create()
 	{
-		$partidos = Partido::partidoEquipo()->orderBy('dia','DESC')->get();
+		$goles = array();
+		for ($i=0; $i < 13; $i++) {
+			$goles[$i] = $i;
+		}
+		$partidos = Partido::partidoEquipo()->get()->lists('nombre','id');
 		return View::make('marcador.create')
+		->with('goles',$goles)
 		->with('partidos',$partidos);
 	}
 
@@ -38,12 +43,12 @@ class MarcadoresController extends \BaseController {
 	public function store()
 	{
 		$marcador = new Marcador();
-		$marcador->partido_id = Input::get('partido');
+		$marcador->partido_id = Input::get('partido_id');
 		$marcador->goles_f    = Input::get('goles_f');
 		$marcador->goles_c    = Input::get('goles_c');
 		$marcador->save();
 		return Redirect::to('admin/marcador')
-		->with('flash_notice', 'Se ha agregado correctamente el marcador.');
+		->with('alert-success', 'Se ha agregado correctamente el marcador.');
 	}
 
 	/**
@@ -56,11 +61,7 @@ class MarcadoresController extends \BaseController {
 	public function show($id)
 	{
 		$marcador = Marcador::find($id);
-		$partido  = Partido::find($marcador->partido_id);
-		$equipo  = Equipo::find($partido->equipo_id);
 		return View::make('marcador.show')
-		->with('partido',$partido)
-		->with('equipo',$equipo)
 		->with('marcador',$marcador);
 	}
 
@@ -74,11 +75,14 @@ class MarcadoresController extends \BaseController {
 	public function edit($id)
 	{
 		$marcador = Marcador::find($id);
-		$partido = Partido::find($marcador->partido_id);
-		$equipo = Equipo::find($partido->equipo_id);
+		$partidos = Partido::partidos()->lists('nombre','id');
+		$goles = array();
+		for ($i=0; $i < 13; $i++) {
+			$goles[$i] = $i;
+		}
 		return View::make('marcador.edit')
-		->with('partido',$partido)
-		->with('equipo',$equipo)
+		->with('partidos',$partidos)
+		->with('goles',$goles)
 		->with('marcador',$marcador);
 	}
 
@@ -93,12 +97,12 @@ class MarcadoresController extends \BaseController {
 	{
 
 		$marcador = Marcador::find($id);
-		$marcador->partido_id = $marcador->id;
+		$marcador->partido_id = Input::get('partido_id');
 		$marcador->goles_f    = Input::get('goles_f');
 		$marcador->goles_c    = Input::get('goles_c');
 		$marcador->save();
 		return Redirect::to('admin/marcador')
-		->with('flash_warning', 'Se ha editado correctamente el marcador.');
+		->with('alert-success', 'Se ha editado correctamente el marcador.');
 	}
 
 	/**
@@ -113,7 +117,7 @@ class MarcadoresController extends \BaseController {
 		$marcador = Marcador::find($id);
 		$marcador->delete();
 		return Redirect::to('admin/marcador')
-		->with('flash_error', 'Se ha eliminado correctamente el marcador.');
+		->with('alert-success', 'Se ha eliminado correctamente el marcador.');
 	}
 
 }

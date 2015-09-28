@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title')
-Nueva Categoria Pumas Ruiz F.C.
+Nueva Categoría Pumas Ruiz F.C.
 @stop
 @section('header')
 	@include('layout.header')
@@ -16,11 +16,19 @@ Nueva Categoria Pumas Ruiz F.C.
 		</div>
 		<div class="panel-body">
 			{{ Form::open(array('route' => 'admin.categoria.store')) }}
-				@include('categoria.form')
-				{{ Form::submit('Registrar',array('class'=>'btn btn-success pull-right'))}}
-				{{ HTML::link(URL::previous(), 'Regresar',array('class' => 'btn btn-primary')) }}
+			@include('categoria.form')
+		</div>
+		<div class="panel-footer">
+			{{ Form::submit('Registrar',array('class'=>'btn btn-success pull-right'))}}
+			{{ HTML::link(URL::previous(), 'Regresar',array('class' => 'btn btn-primary')) }}
 			{{ Form::close() }}
 		</div>
 	</div>
 </div>
+@stop
+@section('css')
+{{ HTML::style('css/toastr.css') }}
+@stop
+@section('js')
+{{ HTML::script('js/toastr.js') }}
 @stop

@@ -15,7 +15,8 @@ class CreateMarcadoresTable extends Migration {
 		Schema::create('marcadores', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('partido_id');
+			$table->integer('partido_id')->unsigned();
+			$table->foreign('partido_id')->references('id')->on('partidos')->onDelete('cascade');
 			$table->integer('goles_f');
 			$table->integer('goles_c');
 			$table->timestamps();

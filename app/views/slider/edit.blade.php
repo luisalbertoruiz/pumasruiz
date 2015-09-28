@@ -21,11 +21,39 @@ Editar Slider Imagen No. {{ $slider->id}} Pumas Ruiz F.C.
 						{{ Form::label('imagen')}}
 						{{ Form::file('imagen', array('class'=>'form-control', 'required'=>'true'))}}<br>
 					</div>
-				</div><br><br><br><br><br>
-				<button type="submit" class="btn btn-success pull-right">Actualizar</button>
-				<a class="btn btn-primary" href='{{ URL::previous() }}'>Regresar</a>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+						<span class="sr-only">0% Complete (success)</span>
+					</div>
+				</div>
+				</div>
+		</div>
+		<div class="panel-footer">
+			<button type="submit" class="btn btn-success pull-right">Actualizar</button>
+			<a class="btn btn-primary" href='{{ URL::previous() }}'>Regresar</a>
 			{{ Form::close() }}
 		</div>
 	</div>
 </div>
+@stop
+@section('js')
+{{ HTML::script('js/form.js') }}
+@stop
+@section('script')
+<script type="text/javascript">
+	jQuery(document).ready(function($)
+	{
+		$('form').submit(function(event) {
+			event.preventDefault();
+			$(this).ajaxSubmit({
+				uploadProgress:function(event, position, total, percentComplete) {
+		            $('.progress-bar').css('width', percentComplete+'%');
+		        },
+		        complete:function(xhr) {
+		            window.location="{{Url::to('/admin/slider')}}";
+		        }
+			});
+		});
+	});
+</script>
 @stop

@@ -24,3 +24,12 @@ Nuevo Torneo Pumas Ruiz F.C.
 	</div>
 </div>
 @stop
+@section('script')
+<script type="text/javascript">
+	jQuery(document).ready(function($)
+	{
+		$('.timepicker').timepicker();	
+	});
+}
+</script>
+@stop

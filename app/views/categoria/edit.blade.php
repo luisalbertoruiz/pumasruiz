@@ -24,3 +24,9 @@ Editar Categoria {{$categoria->nombre}} Pumas Ruiz F.C.
 	</div>
 </div>
 @stop
+@section('css')
+{{ HTML::style('css/toastr.css') }}
+@stop
+@section('js')
+{{ HTML::script('js/toastr.js') }}
+@stop

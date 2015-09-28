@@ -20,18 +20,19 @@ Categorias Pumas Ruiz F.C.
 				<table class="table">
 					<thead>
 						<tr>
+							<th style="max-width:10px;">ID</th>
 							<th>Nombre</th>
 							<th>Información</th>
-							<th>Acciones</th>
+							<th style="max-width:50px;">Acciones</th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($categorias as $categoria)
 						<tr>
+							<td>{{ $categoria->id }}</td>
 							<td>{{ $categoria->nombre }}</td>
 							<td>{{ $categoria->info }}</td>
 							<td>
-							{{ link_to_route('admin.categoria.show','',$categoria->id, array('class' => 'btn btn-success btn-xs glyphicon glyphicon-eye-open')) }}
 							{{ link_to_route('admin.categoria.edit','',$categoria->id, array('class' => 'btn btn-warning btn-xs glyphicon glyphicon-pencil')) }}
 							<a href="javascript:;" onclick="eliminaRegistro('{{URL::to('/admin/categoria/'.$categoria->id)}}','{{$categoria->id}}');" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" data-original-title="eliminar"><i class="glyphicon glyphicon-trash"></i></a>
 							{{ Form::open(array('method' => 'DELETE', 'route' => array('admin.categoria.destroy', $categoria->id),'id'=>$categoria->id)) }}{{ Form::close() }}
@@ -46,7 +47,7 @@ Categorias Pumas Ruiz F.C.
 	</div>
 </div>
 <div id="dialog" title="¿Deseas eliminar el registro?">
-	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span> Se eliminara permanentemente</p>
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span> Se eliminara permanentemente y todo lo relacionado a el</p>
 </div>
 @stop
 @section('css')
@@ -67,7 +68,7 @@ Categorias Pumas Ruiz F.C.
 		});
 		$("#dialog").dialog({
 			resizable: false,
-			height:170,
+			height:180,
 			modal: true,
 			autoOpen: false,
 			show: {
@@ -80,7 +81,7 @@ Categorias Pumas Ruiz F.C.
 			}
 		});
 	});
-	function eliminaRegistro (url,id) {
+function eliminaRegistro (url,id) {
 	$( "#dialog" ).dialog( "open" );
 	$( "#dialog" ).dialog({
 		buttons: {

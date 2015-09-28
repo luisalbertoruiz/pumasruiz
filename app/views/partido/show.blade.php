@@ -19,18 +19,18 @@ Partido Pumas Ruiz F.C.
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th>vs {{ $equipo->nombre }}</th>
+							<th>vs {{ $partido->equipo->nombre }}</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>Torneo:</td>
-							<td>{{$torneo->nombre}}</td>
+							<td>{{$partido->torneo->nombre}}</td>
 						</tr>
 						<tr>
 							<td>cancha:</td>
-							<td>{{$partido->cancha}}</td>
+							<td>{{$partido->cancha->nombre}}</td>
 						</tr>
 						<tr>
 							<td>Dia:</td>

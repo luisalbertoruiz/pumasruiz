@@ -22,7 +22,7 @@ Canchas Pumas Ruiz F.C.
 						<tr>
 							<th>Nombre</th>
 							<th>Ubicación</th>
-							<th>Acciones</th>
+							<th style="max-width:60px;">Acciones</th>
 						</tr>
 					</thead>
 					<tbody>

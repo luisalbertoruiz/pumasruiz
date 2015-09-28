@@ -12,14 +12,14 @@
 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h2 class="panel-title"><span class="glyphicon glyphicon-calendar"> Torneo</h2>
+			<h2 class="panel-title"><span class="glyphicon glyphicon-play"></span> Marcador</h2>
 		</div>
 		<div class="panel-body">
 			<div class="table-responsive">
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th>vs {{ $equipo->nombre }}</th>
+							<th>vs {{ $marcador->partido->equipo->nombre }}</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -34,19 +34,19 @@
 						</tr>
 						<tr>
 							<td>Dia:</td>
-							<td>{{$partido->dia}}</td>
+							<td>{{$marcador->partido->dia}}</td>
 						</tr>
 						<tr>
 							<td>Cancha:</td>
-							<td>{{$partido->cancha}}</td>
+							<td>{{$marcador->partido->cancha->nombre}}</td>
 						</tr>
 						<tr>
 							<td>Horario:</td>
-							<td>{{$partido->horario}}</td>
+							<td>{{$marcador->partido->horario}}</td>
 						</tr>
 						<tr>
 							<td>Fecha:</td>
-							<td>{{$partido->fecha}}</td>
+							<td>{{$marcador->partido->fecha}}</td>
 						</tr>
 					</tbody>
 				</table>

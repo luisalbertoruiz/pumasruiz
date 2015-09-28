@@ -15,8 +15,10 @@ class CreateGoleadoresTable extends Migration {
 		Schema::create('goleadores', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('jugador_id');
-			$table->integer('partido_id');
+			$table->integer('jugador_id')->unsigned();
+			$table->foreign('jugador_id')->references('id')->on('jugadores')->onDelete('cascade');
+			$table->integer('partido_id')->unsigned();
+			$table->foreign('partido_id')->references('id')->on('partidos')->onDelete('cascade');
 			$table->integer('goles');
 			$table->timestamps();
 		});

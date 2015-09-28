@@ -34,12 +34,33 @@ class CategoriasController extends \BaseController {
 	 */
 	public function store()
 	{
-		$categoria = new Categoria();
-		$categoria->nombre   = Str::title(Str::lower(Input::get('nombre')));
-		$categoria->info     = Input::get('info');
-		$categoria->save();
-		return Redirect::to('admin/categoria')
-		->with('alert-success', 'Se ha agregado correctamente la categoria.');
+		$nombre = Str::title(Str::lower(Input::get('nombre')));
+		$info   = Input::get('info');
+
+		$datos = array(
+			'nombre' => $nombre
+			);
+		$reglas = array(
+			'nombre' => 'required'
+			);
+		$mensajes = array(
+			'required' => 'El campo :attribute es obligatorio'
+			);
+
+		$validador = Validator::make($datos, $reglas, $mensajes);
+
+		if ($validador->fails())
+		{
+		    return Redirect::to('admin/categoria/create')
+			->withInput()->withErrors($validador);
+		} else {
+			$categoria = new Categoria();
+			$categoria->nombre = $nombre;
+			$categoria->info   = $info;
+			$categoria->save();
+			return Redirect::to('admin/categoria')
+			->with('alert-success', 'Se ha agregado correctamente la categoria.');
+		}
 	}
 
 	/**
@@ -51,9 +72,7 @@ class CategoriasController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$categoria = Categoria::find($id);
-		return View::make('categoria.show')
-		->with('categoria',$categoria);
+		return Redirect::to('admin/categoria');
 	}
 
 	/**
@@ -79,16 +98,33 @@ class CategoriasController extends \BaseController {
 	 */
 	public function update($id)
 	{
+		$nombre = Str::title(Str::lower(Input::get('nombre')));
+		$info   = Input::get('info');
 
-		$categoria   = Categoria::find($id);
-		$categoria->nombre   = Str::title(Str::lower(Input::get('nombre')));
-		$categoria->locacion = Str::title(Str::lower(Input::get('locacion')));
-		$categoria->info     = Input::get('info');
-		$categoria->latitud  = Input::get('latitud');
-		$categoria->longitud = Input::get('longitud');
-		$categoria->save();
-		return Redirect::to('admin/categoria')
-		->with('alert-success', 'Se ha editado correctamente la categoria.');
+		$datos = array(
+			'nombre' => $nombre
+			);
+		$reglas = array(
+			'nombre' => 'required'
+			);
+		$mensajes = array(
+			'required' => 'El campo :attribute es obligatorio'
+			);
+
+		$validador = Validator::make($datos, $reglas, $mensajes);
+
+		if ($validador->fails())
+		{
+		    return Redirect::action('CategoriasController@edit', array('id' => $id))
+			->withInput()->withErrors($validador);
+		} else {
+			$categoria   = Categoria::find($id);
+			$categoria->nombre = $nombre;
+			$categoria->info   = $info;
+			$categoria->save();
+			return Redirect::to('admin/categoria')
+			->with('alert-success', 'Se ha editado correctamente la categoria.');
+		}
 	}
 
 	/**
@@ -103,7 +139,7 @@ class CategoriasController extends \BaseController {
 		$categoria = Categoria::find($id);
 		$categoria->delete();
 		return Redirect::to('admin/categoria')
-		->with('alert-danger', 'Se ha eliminado correctamente la categoria.');
+		->with('alert-success', 'Se ha eliminado correctamente la categoria.');
 	}
 
 }

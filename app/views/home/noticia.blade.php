@@ -15,14 +15,17 @@ Pumas Ruiz F.C.
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	<div class="panel panel-primary">
 		  <div class="panel-heading">
-				<h3 class="panel-title">Panel title</h3>
+				<h3 class="panel-title">{{$noticia->titulo}} <small>{{$noticia->publicacion}}</small></h3>
 		  </div>
 		  <div class="panel-body text-justify">
-				<h4><a href="" class="linkNoticia">Primer Derrota</a></h4>
-				<h6>12 Julio 2015</h6>
-				{{ HTML::image('src/galeria/2s.jpg', 'pumasruiz',array('class'=>'noticiaImg img-responsive center-block')) }}
-				<p class="noticiaP">Segundo Partido y ya tuvimos la primer derrota, despues de ir perdiendo dos goles a cero, en un tiro de Castigo "Ale" Anota un Hermoso Gol, el tiro sale con bastante chanfle muy duro, pasa arriba de la barrera y se incrusta en el mero angulo, se sigue peleando duro por los dos equipos, debemos confesar que casi siempre el Chicago Fire nos Gano la Media, y a sufrir se ha dicho perdiendiendonos la oportunidad de empatar el partido.</p>
+				{{ HTML::image('src/noticias/'.$noticia->imagen, 'pumasruiz',array('class'=>'noticiaImg img-responsive center-block')) }}
+				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2">
+					<p class="noticiaP">{{$noticia->contenido}}</p>
+				</div>
 		  </div>
+		  <div class="panel-footer" style="background-color:#b2945e;border-top-width: 0px;border-radius:0px;">
+			<a class="btn btn-primary" href='{{ URL::previous() }}'>Regresar</a>
+		</div>
 	</div>
 </div>
 @stop

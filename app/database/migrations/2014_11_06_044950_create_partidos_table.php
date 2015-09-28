@@ -16,11 +16,11 @@ class CreatePartidosTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('equipo_id')->unsigned();
-			$table->foreign('equipo_id')->references('id')->on('equipos');
+			$table->foreign('equipo_id')->references('id')->on('equipos')->onDelete('cascade');
 			$table->integer('torneo_id')->unsigned();
-			$table->foreign('torneo_id')->references('id')->on('torneos');
+			$table->foreign('torneo_id')->references('id')->on('torneos')->onDelete('cascade');
 			$table->integer('cancha_id')->unsigned();
-			$table->foreign('cancha_id')->references('id')->on('canchas');
+			$table->foreign('cancha_id')->references('id')->on('canchas')->onDelete('cascade');
 			$table->date('dia');
 			$table->time('horario');
 			$table->integer('fecha');

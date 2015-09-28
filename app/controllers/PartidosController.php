@@ -10,9 +10,7 @@ class PartidosController extends \BaseController {
 	 */
 	public function index()
 	{
-		$partidos = DB::table('partidos')
-		->orderBy('fecha','DESC')
-		->get();
+		$partidos = Partido::orderBy('dia','DESC')->get();
 		return View::make('partido.index')
 		->with('partidos',$partidos);
 	}
@@ -25,9 +23,9 @@ class PartidosController extends \BaseController {
 	 */
 	public function create()
 	{
-		$equipos = DB::table('equipos')->where('division', 'Primera')->get();
-		$torneos = DB::table('torneos')->get();
-		$canchas = DB::table('canchas')->get();
+		$equipos = Equipo::where('categoria_id', '1')->lists('nombre','id');
+		$torneos = Torneo::lists('nombre','id');
+		$canchas = Cancha::lists('nombre','id');
 		return View::make('partido.create')
 		->with('equipos',$equipos)
 		->with('torneos',$torneos)
@@ -43,15 +41,15 @@ class PartidosController extends \BaseController {
 	public function store()
 	{
 		$partido = new Partido();
-		$partido->equipo_id = Input::get('equipo');
-		$partido->torneo_id = Input::get('torneo');
-		$partido->cancha    = Input::get('cancha');
+		$partido->equipo_id = Input::get('equipo_id');
+		$partido->torneo_id = Input::get('torneo_id');
+		$partido->cancha_id = Input::get('cancha_id');
 		$partido->dia       = Input::get('dia');
 		$partido->horario   = Input::get('horario');
 		$partido->fecha     = Input::get('fecha');
 		$partido->save();
 		return Redirect::to('admin/partido')
-		->with('flash_notice', 'Se ha agregado correctamente el partido.');
+		->with('alert-notice', 'Se ha agregado correctamente el partido.');
 	}
 
 	/**
@@ -64,11 +62,7 @@ class PartidosController extends \BaseController {
 	public function show($id)
 	{
 		$partido = Partido::find($id);
-		$equipo  = Equipo::find($partido->equipo_id);
-		$torneo  = Torneo::find($partido->torneo_id);
 		return View::make('partido.show')
-		->with('equipo',$equipo)
-		->with('torneo',$torneo)
 		->with('partido',$partido);
 	}
 
@@ -103,15 +97,15 @@ class PartidosController extends \BaseController {
 	{
 
 		$partido   = Partido::find($id);
-		$partido->equipo_id = Input::get('equipo');
-		$partido->torneo_id = Input::get('torneo');
-		$partido->cancha    = Input::get('cancha');
+		$partido->equipo_id = Input::get('equipo_id');
+		$partido->torneo_id = Input::get('torneo_id');
+		$partido->cancha_id = Input::get('cancha_id');
 		$partido->dia       = Input::get('dia');
 		$partido->horario   = Input::get('horario');
 		$partido->fecha     = Input::get('fecha');
 		$partido->save();
 		return Redirect::to('admin/partido')
-		->with('flash_warning', 'Se ha editado correctamente el partido.');
+		->with('alert-warning', 'Se ha editado correctamente el partido.');
 	}
 
 	/**
@@ -126,7 +120,7 @@ class PartidosController extends \BaseController {
 		$partido = Partido::find($id);
 		$partido->delete();
 		return Redirect::to('admin/partido')
-		->with('flash_error', 'Se ha eliminado correctamente el partido.');
+		->with('alert-error', 'Se ha eliminado correctamente el partido.');
 	}
 
 }

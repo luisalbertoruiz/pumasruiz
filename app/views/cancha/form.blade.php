@@ -13,6 +13,6 @@
 		{{ Form::label('locacion','Locación')}}
 		{{ Form::text('locacion', null, array('class'=>'form-control'))}}<br>
 		{{ Form::label('info','Información')}}
-		{{ Form::textarea('info', null, array('class'=>'form-control', 'cols'=>'30', 'rows'=>'5'))}}<br>
+		{{ Form::textarea('info', null, array('class'=>'form-control', 'cols'=>'30', 'rows'=>'5'))}}
 	</div>
 </div>

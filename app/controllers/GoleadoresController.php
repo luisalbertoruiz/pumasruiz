@@ -10,7 +10,7 @@ class GoleadoresController extends \BaseController {
 	 */
 	public function index()
 	{
-		$goleadores = Goleador::goleadorJugador()->paginate(5);
+		$goleadores = Goleador::all();
 		return View::make('goleador.index')
 		->with('goleadores',$goleadores);
 	}
@@ -23,9 +23,14 @@ class GoleadoresController extends \BaseController {
 	 */
 	public function create()
 	{
-		$partidos = Partido::partidoEquipo()->orderBy('dia','DESC')->get();
-		$jugadores = Jugador::all();
+		$goles = array();
+		for ($i=1; $i < 11; $i++) {
+			$goles[$i] = $i;
+		}
+		$partidos = Partido::partidos()->get()->lists('nombre','id');
+		$jugadores = Jugador::nombreCompleto()->get()->lists('nombre','id');
 		return View::make('goleador.create')
+		->with('goles',$goles)
 		->with('jugadores',$jugadores)
 		->with('partidos',$partidos);
 	}
@@ -39,12 +44,12 @@ class GoleadoresController extends \BaseController {
 	public function store()
 	{
 		$goleador = new Goleador();
-		$goleador->jugador_id = Input::get('jugador');
-		$goleador->partido_id = Input::get('partido');
+		$goleador->jugador_id = Input::get('jugador_id');
+		$goleador->partido_id = Input::get('partido_id');
 		$goleador->goles      = Input::get('goles');
 		$goleador->save();
 		return Redirect::to('admin/goleador')
-		->with('flash_notice', 'Se han registrado correctamente los goles.');
+		->with('alert-success', 'Se han registrado correctamente los goles.');
 
 	}
 
@@ -70,13 +75,16 @@ class GoleadoresController extends \BaseController {
 	public function edit($id)
 	{
 		$goleador = Goleador::find($id);
-		$partido = Partido::find($goleador->partido_id);
-		$jugador = Jugador::find($goleador->jugador_id);
-		$equipo = Equipo::find($partido->equipo_id);
+		$goles = array();
+		for ($i=1; $i < 11; $i++) {
+			$goles[$i] = $i;
+		}
+		$partidos = Partido::partidos()->get()->lists('nombre','id');
+		$jugadores = Jugador::nombreCompleto()->get()->lists('nombre','id');
 		return View::make('goleador.edit')
-		->with('partido',$partido)
-		->with('jugador',$jugador)
-		->with('equipo',$equipo)
+		->with('partidos',$partidos)
+		->with('jugadores',$jugadores)
+		->with('goles',$goles)
 		->with('goleador',$goleador);
 	}
 
@@ -90,10 +98,12 @@ class GoleadoresController extends \BaseController {
 	public function update($id)
 	{
 		$goleador = Goleador::find($id);
-		$goleador->goles      = Input::get('goles');
+		$goleador->jugador_id = Input::get('jugador_id');
+		$goleador->partido_id = Input::get('partido_id');
+		$goleador->goles = Input::get('goles');
 		$goleador->save();
 		return Redirect::to('admin/goleador')
-		->with('flash_warning', 'Se han modificado correctamente los goles.');
+		->with('alert-success', 'Se han modificado correctamente los goles.');
 	}
 
 	/**
@@ -108,7 +118,7 @@ class GoleadoresController extends \BaseController {
 		$goleador = Goleador::find($id);
 		$goleador->delete();
 		return Redirect::to('admin/goleador')
-		->with('flash_error', 'Se ha eliminado correctamente el goleador.');
+		->with('alert-success', 'Se ha eliminado correctamente el goleador.');
 	}
 
 }

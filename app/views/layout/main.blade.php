@@ -19,6 +19,7 @@
 		{{ HTML::script('js/ui.js') }}
 		{{ HTML::script('js/datepicker.js') }}
 		{{ HTML::script('js/timepicker.js') }}
+		{{ HTML::script('js/bootstrap-datepicker.es.min.js') }}
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -39,26 +40,9 @@
 		@yield('script')
 		<script>
 		$(document).ready(function($) {
-			$( document ).tooltip({
-				show: {
-			        effect: "slideDown",
-			        delay: 0
-		    	},
-		    	position: {
-		        my: "center top-0",
-		        at: "center bottom"/*,
-		        using: function( position, feedback ) {
-		          $( this ).css( position );
-		          $( "<div>" )
-		            .addClass( "arrow" )
-		            .addClass( feedback.vertical )
-		            .addClass( feedback.horizontal )
-		            .appendTo( this );
-		        }*/}
-		    });
 			$('#horario').timepicker({
 				'timeFormat': 'H:i',
-				'step': 60,
+				'step': 30,
 				'minTime': '8:00am',
     			'maxTime': '8:00pm' });
 			$('#dia').datepicker({
@@ -69,6 +53,13 @@
 			});
 			$('#ffinal').datepicker({
 				'format': 'yyyy-m-d'
+			});
+			$('.datepicker').datepicker({
+				'format': 'yyyy-m-d',
+				'autoclose':true,
+				'todayBtn':true,
+				'todayHighlight':true,
+				'language':'es'
 			});
 		});
 		</script>

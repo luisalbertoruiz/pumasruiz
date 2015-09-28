@@ -1,1 +1,0 @@
-/var/www/pumasruiz/app/views/posicions/show.blade.php

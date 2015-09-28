@@ -13,7 +13,7 @@
 			<li><a href="{{ URL::to('/admin/partido') }}"><span class="glyphicon glyphicon-play"></span> Partidos</a></li>
 			<li><a href="{{ URL::to('/admin/marcador') }}"><span class="glyphicon glyphicon-pencil"></span> Marcador</a></li>
 			<li><a href="{{ URL::to('/admin/goleador') }}"><span class="glyphicon glyphicon-record"></span> Goleo</a></li>
-			<li><a href="{{ URL::to('/admin/resultado') }}"><span class="glyphicon glyphicon-list"></span> Resultados</a></li>
+			<li><a href="{{ URL::to('/admin/posicion') }}"><span class="glyphicon glyphicon-list"></span> Posiciones</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
