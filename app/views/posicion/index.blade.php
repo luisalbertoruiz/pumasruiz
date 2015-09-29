@@ -25,7 +25,7 @@ Posiciones Pumas Ruiz F.C.
 							<th>Resultado</th>
 							<th>Puntos</th>
 							<th>Torneo</th>
-							<th style="max-width:50px;">Acciones</th>
+							<th style="max-width:60px;">Acciones</th>
 						</tr>
 					</thead>
 					<tbody>

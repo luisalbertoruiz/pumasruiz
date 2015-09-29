@@ -13,6 +13,7 @@ class HomeController extends BaseController {
 		$noticias   = Noticia::orderBy('publicacion','desc')->limit(5)->get();
 		$proximo    = Partido::proximoPartido()->first();
 		$ultimo     = Partido::ultimoPartido()->first();
+		$fecha      = Posicion::orderBy('fecha','DESC')->limit(1)->first();
 		$sql = Posicion::tabla();
 		$posiciones = DB::table(DB::raw("($sql) AS a"))->select('a.*')
 		->groupBy('nombre')->orderBy('puntos','DESC')->orderBy('nombre','ASC')->get();
@@ -20,6 +21,7 @@ class HomeController extends BaseController {
 		->with('noticias',$noticias)
 		->with('proximo',$proximo)
 		->with('ultimo',$ultimo)
+		->with('fecha',$fecha)
 		->with('posiciones',$posiciones);
 	}
 

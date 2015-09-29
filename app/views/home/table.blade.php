@@ -1,7 +1,7 @@
 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h2 class="panel-title"><span>{{ HTML::image('src/logo-blanco-sm.png', 'pumasruiz',array('class'=>'panelImg')) }} Tabla de Posiciones</span></h2>
+            <h2 class="panel-title"><span>{{ HTML::image('src/logo-blanco-sm.png', 'pumasruiz',array('class'=>'panelImg')) }} Tabla de Posiciones <span class="pull-right">f-{{$fecha->fecha}}</span> </span></h2>
         </div>
         <div class="panel-body">
             <table class="table">
