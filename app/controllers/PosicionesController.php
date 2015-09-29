@@ -158,7 +158,10 @@ class PosicionesController extends \BaseController {
      */
     public function destroy($id)
     {
-        //
+        $posicion = Posicion::find($id);
+        $posicion->delete();
+        return Redirect::to('admin/posicion')
+        ->with('alert-success', 'Se ha eliminado correctamente el resultado.');
     }
 
 }
