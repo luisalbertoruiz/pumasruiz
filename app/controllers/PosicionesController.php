@@ -51,27 +51,40 @@ class PosicionesController extends \BaseController {
      */
     public function store()
     {
-        $favor  = (int)Input::get('goles_f');
-        $contra = (int)Input::get('goles_c');
-        if ($favor > $contra) {
-            $puntos = 3;
+        $equipo_id = Input::get('equipo_id');
+        $fecha     = Input::get('fecha');
+        $goles_f   = Input::get('goles_f');
+        $goles_c   = Input::get('goles_c');
+        $torneo_id = Input::get('torneo_id');
+
+        $verifica = Posicion::where('fecha','=',$fecha)
+        ->where('equipo_id','=',$equipo_id)->where('torneo_id','=',$torneo_id)->count();
+        if ($verifica > 0) {
+            return Redirect::to('admin/posicion/create')
+            ->withInput()->with('alert-danger','Ya se encuentra registrado en esta fecha un resultado');
+        } else {
+            $favor  = (int)Input::get('goles_f');
+            $contra = (int)Input::get('goles_c');
+            if ($favor > $contra) {
+                $puntos = 3;
+            }
+            if ($favor < $contra) {
+                $puntos = 0;
+            }
+            if ($favor == $contra) {
+                $puntos = 1;
+            }
+            $posicion = new Posicion();
+            $posicion->equipo_id = $equipo_id;
+            $posicion->fecha     = $fecha;
+            $posicion->goles_f   = $goles_f;
+            $posicion->goles_c   = $goles_c;
+            $posicion->torneo_id = $torneo_id;
+            $posicion->puntos    = $puntos;
+            $posicion->save();
+            return Redirect::to('admin/posicion')
+            ->with('alert-success', 'Se han agregado correctamente los puntos.');
         }
-        if ($favor < $contra) {
-            $puntos = 0;
-        }
-        if ($favor == $contra) {
-            $puntos = 1;
-        }
-        $posicion = new Posicion();
-        $posicion->equipo_id = Input::get('equipo_id');
-        $posicion->fecha     = Input::get('fecha');
-        $posicion->goles_f   = Input::get('goles_f');
-        $posicion->goles_c   = Input::get('goles_c');
-        $posicion->torneo_id = Input::get('torneo_id');
-        $posicion->puntos    = $puntos;
-        $posicion->save();
-        return Redirect::to('admin/posicion')
-        ->with('alert-success', 'Se han agregado correctamente los puntos.');
     }
 
     /**

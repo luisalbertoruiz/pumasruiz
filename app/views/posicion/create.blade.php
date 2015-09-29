@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title')
-posicions Pumas Ruiz F.C.
+Posicions Pumas Ruiz F.C.
 @stop
 @section('header')
 	@include('layout.header')
@@ -16,13 +16,19 @@ posicions Pumas Ruiz F.C.
 		</div>
 		<div class="panel-body">
 			{{ Form::open(array('route' => 'admin.posicion.store')) }}
-				@include('posicion.form')	
+			@include('posicion.form')	
 		</div>
 		<div class="panel-footer">
 			<button type="submit" class="btn btn-success pull-right">Registrar</button>
-				<a class="btn btn-primary" href='{{ URL::previous() }}'>Regresar</a>
+			<a class="btn btn-primary" href='{{ URL::previous() }}'>Regresar</a>
 			{{ Form::close() }}
 		</div>
 	</div>
 </div>
+@stop
+@section('css')
+{{ HTML::style('css/toastr.css') }}
+@stop
+@section('js')
+{{ HTML::script('js/toastr.js') }}
 @stop
