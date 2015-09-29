@@ -12,7 +12,7 @@ Posiciones Pumas Ruiz F.C.
 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h2 class="panel-title"><span class="glyphicon glyphicon-stats"></span> Posiciones</h2>
+			<h2 class="panel-title"><span class="glyphicon glyphicon-list"></span> Posiciones</h2>
 			{{ HTML::link(URL::to('/admin/posicion/create'), '&nbsp;Nuevo', array('class' => 'btn btn-primary btn-sm pull-right glyphicon glyphicon-plus pull-right','style'=>'margin:-25px -10px 0 0')) }}
 		</div>
 		<div class="panel-body">
@@ -22,8 +22,10 @@ Posiciones Pumas Ruiz F.C.
 						<tr>
 							<th>Equipo</th>
 							<th>Fecha</th>
+							<th>Resultado</th>
 							<th>Puntos</th>
-							<th>Acciones</th>
+							<th>Torneo</th>
+							<th style="max-width:50px;">Acciones</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -31,7 +33,9 @@ Posiciones Pumas Ruiz F.C.
 						<tr>
 							<td>{{ $posicion->equipo->nombre }}</td>
 							<td>{{ $posicion->fecha }}</td>
+							<td>{{ $posicion->goles_f }}-{{ $posicion->goles_c }}</td>
 							<td>{{ $posicion->puntos }}</td>
+							<td>{{ $posicion->torneo->nombre }}</td>
 							<td>
 							{{ link_to_route('admin.posicion.edit','',$posicion->id, array('class' => 'btn btn-warning btn-xs glyphicon glyphicon-pencil')) }}
 							<a href="javascript:;" onclick="eliminaRegistro('{{URL::to('/admin/posicion/'.$posicion->id)}}','{{$posicion->id}}');" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" data-original-title="eliminar"><i class="glyphicon glyphicon-trash"></i></a>
