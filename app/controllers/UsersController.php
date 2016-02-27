@@ -134,7 +134,7 @@ class UsersController extends \BaseController {
 	public function logout()
 	{
 		Sentry::logout();
-		return Redirect::to('/login')->with('alert-success','Hasta luego.');
+		return Redirect::to('/')->with('alert-success','Hasta luego.');
 	}
 
 }

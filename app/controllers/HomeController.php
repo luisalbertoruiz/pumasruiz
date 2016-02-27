@@ -84,4 +84,14 @@ class HomeController extends BaseController {
 	{
 		return View::make('home.login');
 	}
+
+	public function estadisticas()
+	{
+		$posiciones = Marcador::select()
+		->leftJoin('partidos','marcadores.partido_id','=','partidos.id')
+		->orderBy('fecha','ASC')->get();
+		//var_dump($posiciones);exit;
+		return View::make('estadisticas.posiciones')
+		->with('posiciones',$posiciones);
+	}
 }

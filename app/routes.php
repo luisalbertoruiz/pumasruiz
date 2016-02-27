@@ -25,6 +25,7 @@ Route::get  ('/jugadores','HomeController@players');
 Route::get  ('/galeria','HomeController@gallery');
 Route::get  ('/noticia/{id}','HomeController@noticia');
 Route::get  ('/noticias','HomeController@noticias');
+Route::get  ('/estadisticas','HomeController@estadisticas');
 Route::get  ('/login','HomeController@login');
 Route::post ('/loged', 'UsersController@loged');
 Route::get  ('/logout', 'UsersController@logout');
