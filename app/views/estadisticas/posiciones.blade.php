@@ -47,23 +47,23 @@ Estadisticas :: Pumas Ruiz F.C.
 					<tbody>
 					@foreach($posiciones as $posicion)
 						<tr>
-							<td>{{$posicion->fecha}}</td>
-							<td>{{$posicion->equipo_id}}</td>
+							<td>f-{{$posicion->fecha}}</td>
+							<td>{{$posicion->equipo}}</td>
 							<td>{{$posicion->dia}}</td>
 							<td>{{$posicion->cancha_id}}</td>
 							<td>{{$posicion->horario}}</td>
-							<td>{{$posicion->fecha}}</td>
-							<td>{{$posicion->fecha}}</td>
-							<td>{{$posicion->fecha}}</td>
-							<td>{{$posicion->fecha}}</td>
-							<td>{{$posicion->fecha}}</td>
-							<td>{{$posicion->fecha}}</td>
-							<td>{{$posicion->fecha}}</td>
-							<td>{{$posicion->fecha}}</td>
-							<td>{{$posicion->fecha}}</td>
-							<td>{{$posicion->fecha}}</td>
-							<td>{{$posicion->fecha}}</td>
-							<td>{{$posicion->fecha}}</td>
+							<td>{{$posicion->jj}}</td>
+							<td>{{$posicion->jg}}</td>
+							<td>{{$posicion->je}}</td>
+							<td>{{$posicion->jp}}</td>
+							<td>{{$posicion->pg}}</td>
+							<td>{{$posicion->pga}}</td>
+							<td>{{$posicion->gf}}</td>
+							<td>{{$posicion->gc}}</td>
+							<td>{{$posicion->dg}}</td>
+							<td>{{$posicion->gfa}}</td>
+							<td>{{$posicion->gca}}</td>
+							<td>{{$posicion->dga}}</td>
 						</tr>
 					@endforeach
 					</tbody>
