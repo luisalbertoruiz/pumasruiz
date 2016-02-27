@@ -26,7 +26,7 @@ class Partido extends \Eloquent {
 		return $query
 		->leftJoin('equipos','equipos.id','=','partidos.equipo_id')
 		->select(
-			DB::raw('CONCAT(equipos.nombre,"-",partidos.dia) AS nombre'),
+			DB::raw('CONCAT(equipos.nombre," f-",partidos.fecha," (",partidos.dia,")") AS nombre'),
 			'partidos.id'
 			)
 		->whereNotIn('partidos.id',$registrados)
@@ -53,7 +53,7 @@ class Partido extends \Eloquent {
 	{
 		return $this->belongsTo('Cancha');
 	}
-	
+
 	public function torneo()
 	{
 		return $this->belongsTo('Torneo');

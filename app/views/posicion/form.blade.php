@@ -11,8 +11,8 @@
 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 	<div class="form-group">
 		{{ Form::label('goles_f','Goles a Favor')}}
-		{{ Form::number('goles_f', null, array('class'=>'form-control','required'=>'true'))}}<br>
+		{{ Form::number('goles_f', null, array('class'=>'form-control','required'=>'true','min'=>'0'))}}<br>
 		{{ Form::label('goles_c','Goles en contra')}}
-		{{ Form::number('goles_c', null, array('class'=>'form-control','required'=>'true'))}}<br>
+		{{ Form::number('goles_c', null, array('class'=>'form-control','required'=>'true','min'=>'0'))}}<br>
 	</div>
 </div>
