@@ -50,7 +50,7 @@ Estadisticas :: Pumas Ruiz F.C.
 							<td>f-{{$posicion->fecha}}</td>
 							<td>{{$posicion->equipo}}</td>
 							<td>{{$posicion->dia}}</td>
-							<td>{{$posicion->cancha_id}}</td>
+							<td>{{$posicion->cancha}}</td>
 							<td>{{$posicion->horario}}</td>
 							<td>{{$posicion->jj}}</td>
 							<td>{{$posicion->jg}}</td>
