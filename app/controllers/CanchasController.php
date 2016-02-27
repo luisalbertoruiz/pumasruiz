@@ -35,8 +35,8 @@ class CanchasController extends \BaseController {
 	public function store()
 	{
 		$cancha = new Cancha();
-		$cancha->nombre   = Str::title(Str::lower(Input::get('nombre')));
-		$cancha->locacion = Str::title(Str::lower(Input::get('locacion')));
+		$cancha->nombre   = Input::get('nombre');
+		$cancha->locacion = Input::get('locacion');
 		$cancha->info     = Input::get('info');
 		$cancha->latitud  = Input::get('latitud');
 		$cancha->longitud = Input::get('longitud');
@@ -83,9 +83,9 @@ class CanchasController extends \BaseController {
 	public function update($id)
 	{
 
-		$cancha   = Cancha::find($id);
-		$cancha->nombre   = Str::title(Str::lower(Input::get('nombre')));
-		$cancha->locacion = Str::title(Str::lower(Input::get('locacion')));
+		$cancha           = Cancha::find($id);
+		$cancha->nombre   = Input::get('nombre');
+		$cancha->locacion = Input::get('locacion');
 		$cancha->info     = Input::get('info');
 		$cancha->latitud  = Input::get('latitud');
 		$cancha->longitud = Input::get('longitud');
