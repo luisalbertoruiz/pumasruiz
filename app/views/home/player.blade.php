@@ -5,14 +5,14 @@
         </div>
         <div class="panel-body">
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    {{ HTML::image('src/fotos/ale.jpg', 'jugador',array('class'=>'wplayer')) }}
+                    {{ HTML::image('src/fotos/Marco AntonioLópez.jpg', 'jugador',array('class'=>'wplayer')) }}
               </div>
               <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                     <ul>
-                        <li>Alejandro Sánchez Romero</li>
-                        <li>Alias: Ale</li>
-                        <li>Posición: Medio</li>
-                        <li>Playera No: 13</li>
+                        <li>Marco Antonio López</li>
+                        <li>Alias: Boos</li>
+                        <li>Posición: Portero</li>
+                        <li>Playera No: 29</li>
                     </ul>
               </div>
         </div>
